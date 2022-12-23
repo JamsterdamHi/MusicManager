@@ -48,8 +48,10 @@ class ItemController extends Controller
             Item::create([
                 'user_id' => Auth::user()->id,
                 'name' => $request->name,
-                'type' => $request->type,
-                'detail' => $request->detail,
+                'a_name' => $request->a_name,
+                'mood' => $request->mood,
+                'genre' => $request->genre,
+                'demo' => $request->demo,
             ]);
 
             return redirect('/items');

@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => '商品管理',
+    'title' => 'Music Manager',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,12 +45,13 @@ return [
     |
     */
 
-    'logo' => '<b>商品管理</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Music Manager</b>',
+    // 'logo_img' => 'fa-duotone fa-turntable',
+    'logo_img' => 'vendor/adminlte/dist/img/169578.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => '商品管理',
+    'logo_img_alt' => 'Music Manager',
 
     /*
     |--------------------------------------------------------------------------
@@ -226,9 +227,16 @@ return [
 
     'menu' => [
         [
-            'text' => '商品一覧',
+            'text' => 'ホーム',
+            'url'  => 'home',
+            'icon' => 'fa-solid fa-record-vinyl',
+        ],
+
+
+        [
+            'text' => '曲一覧',
             'url'  => 'items',
-            'icon' => 'fas fa-gamepad',
+            'icon' => 'fa-duotone fa-record-vinyl',
         ],
 
         // AdminLTEデフォルト

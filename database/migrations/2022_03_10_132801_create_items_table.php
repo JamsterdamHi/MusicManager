@@ -16,10 +16,14 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned()->index();
-            $table->string('name', 100)->index();
+            $table->string('name', 140)->index();
+            $table->string('a_name', 140)->index();
+            $table->string('mood', 30)->index();
+            $table->string('genre', 30)->index();
+            $table->string('demo', 500)->nullable();
+            $table->string('scene', 100)->nullable();
+            $table->string('note', 100)->nullable();
             $table->string('status', 100)->default('active');
-            $table->smallInteger('type')->nullable();
-            $table->string('detail', 500)->nullable();
             $table->timestamps();
         });
     }

@@ -3,7 +3,7 @@
 @section('title', '商品登録')
 
 @section('content_header')
-    <h1>商品登録</h1>
+    <h1>新しい曲の登録</h1>
 @stop
 
 @section('content')
@@ -12,9 +12,9 @@
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
-                       @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                       @endforeach
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
                     </ul>
                 </div>
             @endif
@@ -23,19 +23,46 @@
                 <form method="POST">
                     @csrf
                     <div class="card-body">
-                        <div class="form-group">
-                            <label for="name">名前</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="名前">
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="custom-select-1">ムード</label>
+                                <select id="mood" name="mood" class="custom-select">
+                                    <option>アップテンポ</option>
+                                    <option>ミディアムテンポ</option>
+                                    <option>バラード</option>
+                                    <option>おごそか</option>
+                                    <option>和風</option>
+                                </select>
+                            </div>
+
+                            <div class="col">
+                                <label for="custom-select-1">ジャンル</label>
+                                <select id="genre" name="genre" class="custom-select">
+                                    <option>ポップス</option>
+                                    <option>ロック</option>
+                                    <option>ヒップホップ</option>
+                                    <option>ジャズ</option>
+                                    <option>クラシック</option>
+                                    <option>インスト</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="type">種別</label>
-                            <input type="number" class="form-control" id="type" name="type" placeholder="1, 2, 3, ...">
+                            <label for="name">曲名</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="曲のタイトルを入力">
                         </div>
 
                         <div class="form-group">
-                            <label for="detail">詳細</label>
-                            <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明">
+                            <label for="a_name">アーティスト名</label>
+                            <input type="text" class="form-control" id="a_name" name="a_name" placeholder="アーティスト名を入力">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="demo">試聴</label>
+                            <img class="logo-youtube" src="../vendor/adminlte/dist/img/youtube_icon-icons.com_62716.png" style="width: 30px; margin-left: 10px; margin-bottom: 5px;">
+                            <input type="text" class="form-control" id="demo" name="demo" placeholder="URL">
                         </div>
                     </div>
 
