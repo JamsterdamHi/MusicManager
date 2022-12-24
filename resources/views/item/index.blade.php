@@ -38,7 +38,7 @@
                     <table class="table table-hover text-nowrap">
                         <thead>
                             <tr>
-                                <th>✅</th>
+                                <th>プレイリストへ追加</th>
                                 <th>ムード</th>
                                 <th>ジャンル</th>                                
                                 <th>曲名</th>
@@ -49,7 +49,7 @@
                         <tbody>
                             @foreach ($items as $item)
                                 <tr>
-                                    <td></td>
+                                    <td><label><input type="checkbox" name="status" value="1"></label></td>
                                     <td>{{ $item->mood }}</td>
                                     <td>{{ $item->genre }}</td>
                                     <td>{{ $item->name }}</td>
