@@ -4,36 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Item;
+use App\Models\Song;
 
-class ItemController extends Controller
+class SongController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
-     * 商品一覧
+     * 曲一覧
      */
     public function index()
     {
         // 商品一覧取得
-        $items = Item::all();
-            // ::where('items.status', 'active')
-            // ->select()
-            // ->get();
-
-        return view('item.index', compact('items'));
+        $songs = Song::all();
+        return view('songs.index', compact('songs'));
     }
 
     /**
-     * 商品登録
+     * 曲登録
      */
     public function add(Request $request)
     {
@@ -54,9 +41,9 @@ class ItemController extends Controller
                 'demo' => $request->demo,
             ]);
 
-            return redirect('/items');
+            return redirect('/songs');
         }
 
-        return view('item.add');
+        return view('songs.add');
     }
 }

@@ -37,24 +37,22 @@
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
                         <thead>
-                            <tr>
-                                <th>プレイリストへ追加</th>
+                            <tr>  
                                 <th>ムード</th>
-                                <th>ジャンル</th>                                
+                                <th>ジャンル</th>                    
                                 <th>曲名</th>
                                 <th>アーティスト名</th>
                                 <th>試聴</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($items as $item)
+                            @foreach ($songs as $song)
                                 <tr>
-                                    <td><label><input type="checkbox" name="status" value="1"></label></td>
-                                    <td>{{ $item->mood }}</td>
-                                    <td>{{ $item->genre }}</td>
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ $item->a_name }}</td>
-                                    <td><a href="{{ $item->demo }}">{{ $item->demo }}</a></td>
+                                    <td>{{ $song->mood->name }}</td>
+                                    <td>{{ $song->genre->name }}</td>
+                                    <td>{{ $song->name }}</td>
+                                    <td>{{ $song->artist->name }}</td>
+                                    <td><a href="{{ $song->youtube_url }}"></a>{{ $song->youtube_url }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

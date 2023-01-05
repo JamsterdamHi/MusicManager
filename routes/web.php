@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SongController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,12 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('items')->group(function () {
-    Route::get('/', [App\Http\Controllers\ItemController::class, 'index']);
-    Route::get('/add', [App\Http\Controllers\ItemController::class, 'add']);
-    Route::post('/add', [App\Http\Controllers\ItemController::class, 'add']);
+Route::prefix('songs')->middleware(['auth'])->name('songs.')->group(function () {
+    Route::get('/', [App\Http\Controllers\SongController::class, 'index'])->name('songs');
+
+    // need to login
+    // Route::get('/add', [App\Http\Controllers\ItemController::class, 'add']);
+    // Route::post('/add', [App\Http\Controllers\ItemController::class, 'add']);
 });

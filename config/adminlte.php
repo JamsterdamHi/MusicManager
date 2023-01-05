@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Music Manager',
+    'title' => 'MusicManager',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Music Manager</b>',
+    'logo' => '<b>MusicManager</b>',
     // 'logo_img' => 'fa-duotone fa-turntable',
     'logo_img' => 'vendor/adminlte/dist/img/169578.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
@@ -235,7 +235,7 @@ return [
 
         [
             'text' => '曲一覧',
-            'url'  => 'items',
+            'url'  => 'songs',
             'icon' => 'fa-duotone fa-record-vinyl',
         ],
 

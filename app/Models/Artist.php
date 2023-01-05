@@ -10,6 +10,8 @@ class Artist extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     public function songs(){
         return $this->hasMany(Song::class);
     }
