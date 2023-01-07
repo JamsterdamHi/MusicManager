@@ -239,6 +239,13 @@ return [
             'icon' => 'fa-duotone fa-record-vinyl',
         ],
 
+        [
+            'text' => '曲を追加',
+            'url'  => 'songs/create',
+            'icon' => 'fa-duotone fa-record-vinyl',
+        ],
+
+
         // AdminLTEデフォルト
         /*
         // Navbar items:

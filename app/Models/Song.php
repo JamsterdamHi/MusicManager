@@ -38,4 +38,14 @@ class Song extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    protected $fillable = [
+        'name',
+        'youtube_url',
+        'artist_id',
+        'genre_id',
+        'mood_id',
+        'user_id',
+    ];
+
 }

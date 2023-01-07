@@ -20,30 +20,30 @@ class SongController extends Controller
     }
 
     /**
+     * 曲登録画面の表示
+     */
+    public function create(Request $request)
+    {
+        return view('songs.create');
+    }
+
+    /**
      * 曲登録
      */
-    public function add(Request $request)
+    public function store(Request $request)
     {
-        // POSTリクエストのとき
-        if ($request->isMethod('post')) {
-            // バリデーション
-            $this->validate($request, [
-                'name' => 'required|max:100',
-            ]);
+        // dd($request);
 
-            // 商品登録
-            Item::create([
-                'user_id' => Auth::user()->id,
-                'name' => $request->name,
-                'a_name' => $request->a_name,
-                'mood' => $request->mood,
-                'genre' => $request->genre,
-                'demo' => $request->demo,
-            ]);
+        Song::create([
+            'name' => $request->name,
+            'youtube_url' => $request->youtube_url,
+            'artist' => $request->artist_id,
+            'genre' => $request->genre_id,
+            'mood' => $request->mood_id,
+            'user_id' => Auth::user()->id,
+        ]);
 
-            return redirect('/songs');
-        }
+        return redirect('songs.index');
 
-        return view('songs.add');
     }
 }

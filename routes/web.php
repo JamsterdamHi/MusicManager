@@ -25,6 +25,8 @@ Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name(
 
 Route::prefix('songs')->middleware(['auth'])->name('songs.')->group(function () {
     Route::get('/', [App\Http\Controllers\SongController::class, 'index'])->name('songs');
+    Route::get('/create', [App\Http\Controllers\SongController::class, 'create'])->name('create');
+    Route::post('/store', [App\Http\Controllers\SongController::class, 'store'])->name('store');
 
     // need to login
     // Route::get('/add', [App\Http\Controllers\ItemController::class, 'add']);
