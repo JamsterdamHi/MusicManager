@@ -22,6 +22,7 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('playlist', [App\Http\Controllers\HomeController::class, 'show'])->name('playlist');
 
 Route::prefix('songs')->middleware(['auth'])->name('songs.')->group(function () {
     Route::get('/', [App\Http\Controllers\SongController::class, 'index'])->name('songs');

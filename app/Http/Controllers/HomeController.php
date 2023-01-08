@@ -26,4 +26,14 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    /**
+     * Myプレイリスト表示
+     */
+    public function show()
+    {
+        // 商品一覧取得
+        $playlist = Song::find('choice');
+        return view('playlist', compact('songs'));
+    }
 }

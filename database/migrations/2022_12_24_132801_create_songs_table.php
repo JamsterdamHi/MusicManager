@@ -18,8 +18,8 @@ class CreateSongsTable extends Migration
             $table->string('name', 50)->index()->comment('曲名');
             $table->string('artist_name', 50)->comment('アーティスト名');
             $table->string('youtube_url')->nullable()->comment('試聴用URL');
-            $table->foreignId('genre_id')->constrained('genres');
-            $table->foreignId('mood_id')->constrained('moods');
+            $table->foreignId('genre_id')->constrained('genres')->comment('ジャンル');
+            $table->foreignId('mood_id')->constrained('moods')->comment('ムード');
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
