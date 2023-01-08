@@ -19,11 +19,6 @@ class Song extends Model
         return $this->belongsToMany(Playlist::class);
     }
 
-    public function artist()
-    {
-        return $this->belongsTo(Artist::class);
-    }
-
     public function genre()
     {
         return $this->belongsTo(Genre::class);
@@ -42,7 +37,7 @@ class Song extends Model
     protected $fillable = [
         'name',
         'youtube_url',
-        'artist_id',
+        'artist_name',
         'genre_id',
         'mood_id',
         'user_id',

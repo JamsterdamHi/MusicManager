@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Artist;
 use App\Models\Genre;
 use App\Models\Mood;
 
@@ -17,9 +16,9 @@ class SongFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->sentence(10),
-            'youtube_url'=>$this->faker->url,
-            'artist_id'=> Artist::first(),
+            'name' => $this->faker->text(10),
+            'artist_name'=> $this->faker->name(),
+            'youtube_url'=>$this->faker->url(),
             'genre_id'=> Genre::first(),
             'mood_id'=> Mood::first(),
         ];

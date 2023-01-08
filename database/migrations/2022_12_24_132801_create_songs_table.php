@@ -15,9 +15,9 @@ class CreateSongsTable extends Migration
     {
         Schema::create('songs', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 140)->index();
-            $table->string('youtube_url')->nullable();
-            $table->foreignId('artist_id')->constrained('artists');
+            $table->string('name', 50)->index()->comment('曲名');
+            $table->string('artist_name', 50)->comment('アーティスト名');
+            $table->string('youtube_url')->nullable()->comment('試聴用URL');
             $table->foreignId('genre_id')->constrained('genres');
             $table->foreignId('mood_id')->constrained('moods');
             $table->foreignId('user_id')->constrained('users');

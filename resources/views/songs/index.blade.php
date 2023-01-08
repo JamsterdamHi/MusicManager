@@ -22,7 +22,7 @@
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
-                                <a href="{{ url('songs/create') }}" class="btn btn-default">曲の編集</a>
+                                <a href="{{ url('songs/edit') }}" class="btn btn-default">曲の編集</a>
                             </div>
                         </div>
                     </div>
@@ -51,14 +51,13 @@
                                 <tr>
                                     <td>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="choice" value="">
-                                        <!-- <label class="form-check-label" for="flexCheckIndeterminate"></label> -->
+                                        <input class="form-check-input" type="checkbox" name="choice" value="{{ $song->id }}">
                                     </div>
                                     </td>
                                     <td>{{ $song->mood->name }}</td>
                                     <td>{{ $song->genre->name }}</td>
                                     <td>{{ $song->name }}</td>
-                                    <td>{{ $song->artist->name }}</td>
+                                    <td>{{ $song->artist_name }}</td>
                                     <td><a href="{{ $song->youtube_url }}"></a>{{ $song->youtube_url }}</td>
                                 </tr>
                             @endforeach

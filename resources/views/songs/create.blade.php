@@ -56,7 +56,7 @@
 
                         <div class="form-group">
                             <label for="artist">アーティスト名</label>
-                            <input type="text" class="form-control" id="artist" name="artist" placeholder="アーティスト名を入力">
+                            <input type="text" class="form-control" id="artist_name" name="artist_name" placeholder="アーティスト名を入力">
                         </div>
 
                         <div class="form-group">

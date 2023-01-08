@@ -37,13 +37,13 @@ class SongController extends Controller
         Song::create([
             'name' => $request->name,
             'youtube_url' => $request->youtube_url,
-            'artist' => $request->artist_id,
-            'genre' => $request->genre_id,
-            'mood' => $request->mood_id,
+            'artist_name' => $request->artist_name,
+            'genre_id' => $request->genre_id,
+            'mood_id' => $request->mood_id,
             'user_id' => Auth::user()->id,
         ]);
 
         return redirect('songs.index');
-
     }
+    
 }
