@@ -11,11 +11,11 @@ class GenreFactory extends Factory
      *
      * @return array
      */
-    public function definition()
-    {
-        $genres = ['ポップス','ロック','ダンス','ジャズ','ラテン',' クラシック','行進曲','ワールド','声楽','邦楽'];
-        return [
-            'name'=>$this->faker->randomElement($genres)
-        ];
-    }
+    // public function definition()
+    // {
+    //     $genres = ['ポップス','ロック','ダンス','ジャズ','ラテン',' クラシック','行進曲','ワールド','声楽','邦楽'];
+    //     return [
+    //         'name'=>$this->faker->randomElement($genres)
+    //     ];
+    // }
 }

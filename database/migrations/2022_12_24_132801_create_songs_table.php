@@ -20,7 +20,7 @@ class CreateSongsTable extends Migration
             $table->string('youtube_url')->nullable()->comment('試聴用URL');
             $table->foreignId('genre_id')->constrained('genres')->comment('ジャンル');
             $table->foreignId('mood_id')->constrained('moods')->comment('ムード');
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users')->comment('ユーザーID');
             $table->timestamps();
         });
     }

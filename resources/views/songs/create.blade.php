@@ -27,24 +27,33 @@
                         <div class="row mb-3">
                             <div class="col">
                                 <label for="custom-select-1">ムード</label>
-                                <select id="mood" name="mood" class="custom-select">
-                                    <option>アップテンポ</option>
-                                    <option>ミディアムテンポ</option>
-                                    <option>バラード</option>
-                                    <option>おごそか</option>
-                                    <option>和風</option>
+                                <select id="mood" name="mood_id" class="custom-select">
+                                    <option value="1">アップテンポ</option>
+                                    <option value="2">ミディアムテンポ</option>
+                                    <option value="3">バラード</option>
+                                    <option value="4">和風</option>
+                                    <option value="5">神聖な</option>
+                                    <option value="6">ダンスビート</option>
+                                    <option value="7">激しい</option>
+                                    <option value="8">ドラマティック</option>
+                                    <option value="9">ゲーム余興</option>
+                                    <option value="10">効果音</option>
                                 </select>
                             </div>
 
                             <div class="col">
                                 <label for="custom-select-1">ジャンル</label>
-                                <select id="genre" name="genre" class="custom-select">
-                                    <option>ポップス</option>
-                                    <option>ロック</option>
-                                    <option>ヒップホップ</option>
-                                    <option>ジャズ</option>
-                                    <option>クラシック</option>
-                                    <option>インスト</option>
+                                <select id="genre" name="genre_id" class="custom-select">
+                                    <option value="1">ポップス</option>
+                                    <option value="2">ロック</option>
+                                    <option value="3">ダンス</option>
+                                    <option value="4">ヒップホップ</option>
+                                    <option value="5">R＆B</option>
+                                    <option value="6">レゲエ</option>
+                                    <option value="7">ジャズ</option>
+                                    <option value="8">クラシック</option>
+                                    <option value="9">インスト</option>
+                                    <option value="10">オルゴール</option>
                                 </select>
                             </div>
                         </div>

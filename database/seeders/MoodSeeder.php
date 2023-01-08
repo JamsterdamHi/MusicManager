@@ -12,8 +12,8 @@ class MoodSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        Mood::factory(10)->create();
-    }
+    // public function run()
+    // {
+    //     Mood::factory(10)->create();
+    // }
 }

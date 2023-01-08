@@ -15,7 +15,7 @@ class CreateMoodsTable extends Migration
     {
         Schema::create('moods', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->comment('ムード名');
         });
     }
 

@@ -43,7 +43,7 @@ class SongController extends Controller
             'user_id' => Auth::user()->id,
         ]);
 
-        return redirect('songs.index');
+        return redirect('songs');
     }
     
 }

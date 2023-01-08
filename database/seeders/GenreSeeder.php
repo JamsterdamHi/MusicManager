@@ -12,8 +12,8 @@ class GenreSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        Genre::factory(10)->create();
-    }
+    // public function run()
+    // {
+    //     Genre::factory(10)->create();
+    // }
 }

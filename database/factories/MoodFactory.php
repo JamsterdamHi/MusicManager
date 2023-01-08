@@ -11,11 +11,11 @@ class MoodFactory extends Factory
      *
      * @return array
      */
-    public function definition()
-    {
-        $moods = ['アップテンポ','バラード','インスト'];
-        return [
-            'name'=>$this->faker->randomElement($moods)
-        ];
-    }
+    // public function definition()
+    // {
+    //     $moods = ['アップテンポ','バラード','インスト'];
+    //     return [
+    //         'name'=>$this->faker->randomElement($moods)
+    //     ];
+    // }
 }

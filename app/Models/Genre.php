@@ -13,8 +13,23 @@ class Genre extends Model
     public $timestamps = false;
 
     public function songs()
-{
-    return $this->hasMany(Song::class);
-}
+    {
+        return $this->hasMany(Song::class);
+    }
     
+    // public function create()
+    // {
+    //     Genre::upsert([
+    //         ['id' => 1, 'name'=> 'ポップス'],
+    //         ['id' => 2, 'name'=> 'ロック'],
+    //         ['id' => 3, 'name'=> 'ダンス'],
+    //         ['id' => 4, 'name'=> 'ヒップホップ'],
+    //         ['id' => 5, 'name'=> 'R＆B'],
+    //         ['id' => 6, 'name'=> 'レゲエ'],
+    //         ['id' => 7, 'name'=> 'ジャズ'],
+    //         ['id' => 8, 'name'=> 'クラシック'],
+    //         ['id' => 9, 'name'=> 'インスト'],
+    //         ['id' => 10, 'name'=> 'オルゴール'],
+    //     ],['id'],['name']);
+    // }
 }
