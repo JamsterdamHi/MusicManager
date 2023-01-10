@@ -70,7 +70,6 @@
 
                         <div class="form-group">
                             <label for="demo">試聴</label>
-                            <img class="logo-youtube" src="../vendor/adminlte/dist/img/youtube_icon-icons.com_62716.png" style="width: 30px; margin-left: 10px; margin-bottom: 5px;">
                             <input type="text" class="form-control" id="youtube_url" name="youtube_url" placeholder="URL">
                         </div>
                     </div>
