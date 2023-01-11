@@ -23,7 +23,7 @@
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover text-nowrap">
                             <thead>
-                                <tr>  
+                                <tr>
                                     <th></th>
                                     <th>ムード</th>
                                     <th>ジャンル</th>                    
@@ -39,7 +39,6 @@
                             <tbody>
                                 @foreach ($songs as $song)
                                     <tr>
-                                        <td><div class="form-choice">{{ $song->id }}</div></td>
                                         <td>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" name="choice[]" value="{{ $song->id }}">

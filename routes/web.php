@@ -30,6 +30,7 @@ Route::prefix('songs')->middleware(['auth'])->name('songs.')->group(function () 
     Route::post('/store', [App\Http\Controllers\SongController::class, 'store'])->name('store');
     Route::get('/{id}/edit', [App\Http\Controllers\SongController::class, 'edit'])->name('edit');
     Route::post('/{id}', [App\Http\Controllers\SongController::class, 'update'])->name('update');
+    Route::post('/{id}/destroy', [App\Http\Controllers\SongController::class,'destroy'])->name('destroy');
 
     // need to login
     // Route::get('/add', [App\Http\Controllers\ItemController::class, 'add']);

@@ -81,14 +81,32 @@
                     </div>
                 </form>
 
+                <form id="delete_{{ $song->id }}" action="{{ route('songs.destroy', ['id' => $song->id]) }}" method="POST">
+                    @csrf
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-secondary" name="back" value="back">戻る</button>
+                        <a href="#" data-id="{{ $song->id }}" onclick="deletePost(this)" class="btn btn-danger">削除</a>
+                    </div>
+                </form>
+
+                    <div class="card-footer">
+                        <button type='submit' class="btn btn-secondary" name="back" value="back">戻る</button>
                     </div>
 
 
             </div>
         </div>
     </div>
+
+<!-- 確認メッセージ -->
+<script>
+    function deletePost(e){
+        'use strict'
+        if (confirm('本当に削除しますか？')) {
+            document.getElementById('delete_' + e.dataset.id).submit()
+        }
+    }
+</script>
+
 @stop
 
 @section('css')
