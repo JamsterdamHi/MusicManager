@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <p>Myプレイリストの一覧を表示します。</p>
 @stop
 
 @section('css')

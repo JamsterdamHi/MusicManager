@@ -24,11 +24,15 @@
                     @csrf
                     <div class="card-body">
 
+                    <div class="text-right">
+                        <a class="btn btn-secondary btn-sm" href="{{ route('songs.index') }}">戻る</a>
+                    </div>
+
+
                         <div class="row mb-3">
                             <div class="col">
                                 <label for="custom-select-1">ムード</label>
                                 <select id="mood" name="mood_id" class="custom-select" value="{{ $mood }}">
-                                    <!-- <option value="{{ $mood }}" selected>{{ $mood }}</option> -->
                                     <option value="1" @if($song->mood_id == 1) selected @endif>アップテンポ</option>
                                     <option value="2" @if($song->mood_id == 2) selected @endif>ミディアムテンポ</option>
                                     <option value="3" @if($song->mood_id == 3) selected @endif>バラード</option>
@@ -45,7 +49,6 @@
                             <div class="col">
                                 <label for="custom-select-1">ジャンル</label>
                                 <select id="genre" name="genre_id" class="custom-select">
-                                    <!-- <option value="{{ $genre }}" selected>{{ $genre }}</option> -->
                                     <option value="1" @if($song->genre_id == 1) selected @endif>ポップス</option>
                                     <option value="2" @if($song->genre_id == 2) selected @endif>ロック</option>
                                     <option value="3" @if($song->genre_id == 3) selected @endif>ダンス</option>
@@ -87,11 +90,6 @@
                         <a href="#" data-id="{{ $song->id }}" onclick="deletePost(this)" class="btn btn-danger">削除</a>
                     </div>
                 </form>
-
-                    <div class="card-footer">
-                        <button type='submit' class="btn btn-secondary" name="back" value="back">戻る</button>
-                    </div>
-
 
             </div>
         </div>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SongController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +23,15 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('playlist', [App\Http\Controllers\HomeController::class, 'show'])->name('playlist');
+
+Route::prefix('playlist')->middleware(['auth'])->group(function(){
+    Route::post('/', [App\Http\Controllers\PlaylistController::class, 'store'])->name('playlist.store');
+    Route::get('/', [App\Http\Controllers\PlaylistController::class, 'show'])->name('playlist.show');
+});
+
 
 Route::prefix('songs')->middleware(['auth'])->name('songs.')->group(function () {
-    Route::get('/', [App\Http\Controllers\SongController::class, 'index'])->name('songs');
+    Route::get('/', [App\Http\Controllers\SongController::class, 'index'])->name('index');
     Route::get('/create', [App\Http\Controllers\SongController::class, 'create'])->name('create');
     Route::post('/store', [App\Http\Controllers\SongController::class, 'store'])->name('store');
     Route::get('/{id}/edit', [App\Http\Controllers\SongController::class, 'edit'])->name('edit');

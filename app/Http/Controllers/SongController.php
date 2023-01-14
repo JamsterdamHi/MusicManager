@@ -88,4 +88,14 @@ class SongController extends Controller
 
         return redirect('/songs');
     }
+
+        /**
+     * プレイリストへ曲の登録
+     */
+    public function add_songs(Request $request)
+    {
+        // dd($request);
+
+        return redirect('/playlist');
+    }
 }
