@@ -56,7 +56,6 @@ class SongController extends Controller
         $song = Song::find($id);
 
         $genre = CheckFormService::checkGenre($song);
-
         $mood = CheckFormService::checkMood($song);
 
         return view('songs.edit', compact('song', 'genre', 'mood'));

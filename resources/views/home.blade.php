@@ -3,11 +3,31 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Myプレイリスト</h1>
+    <p class="h1 text-center">My<small class="text-muted">PLAYLIST</small></p>
 @stop
 
 @section('content')
-    <p>Myプレイリストの一覧を表示します。</p>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                                <tbody>
+                                    @foreach($playlists as $playlist)
+                                        <tr>
+                                            <td><a href="{{ route('playlist.show', ['id' => $playlist->id]) }}">{{ $playlist->name }}</a></td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                        </thead>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 @stop
 
 @section('css')

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Playlist;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\BinaryOp\Plus;
+use Illuminate\Support\Facades\DB;
 
 class PlaylistController extends Controller
 {
@@ -23,7 +27,19 @@ class PlaylistController extends Controller
      */
     public function create()
     {
-        //
+                // ① ユーザーが登録したプレイリスト名を受け取る
+                $playlist = Playlist::find('name');
+
+                // ② ①のプレイリスト名をバリデーションする
+                // バリデーションルールは必須かつユニーク（重複がない）
+                $validatedData = $playlist->validate([
+                    'name' => ['required', 'unique', 'max:30'],
+                ]);
+        
+                // ③ ②のバリデーションが通ればplaylistテーブルに登録
+                $playlist->save();
+        
+                return redirect('/songs');
     }
 
     /**
@@ -34,32 +50,19 @@ class PlaylistController extends Controller
      */
     public function store(Request $request)
     {
-        // ① ユーザーが登録したプレイリスト名を受け取る
-
-        // ② ①のプレイリスト名をバリデーションする
-        // バリデーションルールは必須かつユニーク（重複がない）
-
-        // ③ ②のバリデーションが通ればplaylistテーブルに登録
-
+        //
     }
 
     /**
      * Display the specified resource.
-     *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        //
-    }
+        $playlist = Playlist::find($id);
 
-            /**
-     * Myプレイリスト表示
-     */
-    public function show_playlist()
-    {
-        return view('playlist');
+        return view('playlist', compact('playlist'));
     }
 
 

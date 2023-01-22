@@ -47,6 +47,11 @@
                                         <div class="form-group">
                                             <label for="name">新規プレイリスト名</label>
                                             <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="プレイリストのタイトルを入力">
+
+                                                @error('title')
+                                                    <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
+
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -73,7 +78,7 @@
                                 </tr>
                             </thead>
 
-                        <form id="to_playlist" action="{{ route('playlist.store') }}" method="POST">
+                        <form id="add_playlist" action="{{ route('playlist.store') }}" method="POST">
                         @csrf
                             <tbody>
                                 @foreach ($songs as $song)
@@ -87,7 +92,7 @@
                                         <td>{{ $song->genre->name }}</td>
                                         <td>{{ $song->name }}</td>
                                         <td>{{ $song->artist_name }}</td>
-                                        <td><a href="{{ $song->youtube_url }}"></a>{{ $song->youtube_url }}</td>
+                                        <td><a href="{{ $song->youtube_url }}">{{ $song->youtube_url }}</a></td>
                                         <td><a href="{{ route('songs.edit', ['id' => $song->id]) }}" class="btn btn-primary btn-sm">編集</a></td>
                                     </tr>
                                 @endforeach
@@ -99,7 +104,6 @@
                 </div>
         </div>
     </div>
-
 @stop
 
 @section('css')
