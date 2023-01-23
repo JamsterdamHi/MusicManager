@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Song;
+use App\Models\Playlist;
 use App\Services\CheckFormService;
 use App\Http\Requests\StoreSongRequest;
 
@@ -18,7 +19,8 @@ class SongController extends Controller
     {
         // 商品一覧取得
         $songs = Song::all();
-        return view('songs.index', compact('songs'));
+        $playlists = Playlist::all();
+        return view('songs.index', compact('songs', 'playlists'));
     }
 
     /**
@@ -93,7 +95,7 @@ class SongController extends Controller
      */
     public function add_songs(Request $request)
     {
-        // dd($request);
+        dd($request);
 
         return redirect('/playlist');
     }

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', '商品一覧')
+@section('title', '曲一覧')
 
 @section('content_header')
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}" class="href">
@@ -24,15 +24,15 @@
                 <div class="card">
                     <div class="card-header d-flex flex-row">
                         <div class="card-tools">
-                            <div class="input-group input-group-sm" style="text-align:right">
+                            <div class="input-group input-group-sm">
                                 <div class="dropdown">
                                     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         プレイリストへ追加
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <button form="to_playlist" type="submit" class="dropdown-item">披露宴BGM</button>
-                                        <button form="to_playlist" type="submit" class="dropdown-item">人前式BGM</button>
-                                        <button form="to_playlist" type="submit" class="dropdown-item">ドライブ用</button>
+                                        @foreach ($playlists as $playlist)
+                                            <button form="to_playlist" type="submit" class="dropdown-item">{{ $playlist->name }}</button>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="input-group-append">
@@ -106,7 +106,6 @@
                                 @endforeach
                             </tbody>
                         </form>
-
                         </table>
                     </div>
                 </div>

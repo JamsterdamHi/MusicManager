@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Playlist;
+use App\Models\Song;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\BinaryOp\Plus;
@@ -47,7 +48,6 @@ class PlaylistController extends Controller
             'name.unique'=>'すでに登録されているプレイリスト名です',
             'name.max'=>'プレイリスト名が長過ぎです'
         ]);
-
         // ②バリデーションが通ればplaylistテーブルに登録        
         Playlist::create([
             'name' => $request->name,
@@ -64,11 +64,12 @@ class PlaylistController extends Controller
      */
     public function show($id)
     {
-        // dd($id);
-
+        // 選択したプレイリストを表示する
         $playlist = Playlist::find($id);
+        // そのプレイリストに紐づいた曲を表示する
+        $songs = Playlist::find($id)->songs()->get();
 
-        return view('playlist', compact('playlist'));
+        return view('playlist', compact('playlist', 'songs'));
     }
 
 
@@ -80,7 +81,10 @@ class PlaylistController extends Controller
      */
     public function edit($id)
     {
-        //
+        $playlist = Playlist::find($id);
+        $song = Playlist::find($id)->songs()->get();
+
+        return view('playlist.edit', compact('playlist', 'song'));
     }
 
     /**
@@ -103,6 +107,9 @@ class PlaylistController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $playlist = Playlist::find($id);
+        $playlist->delete();
+
+        return redirect('home');
     }
 }

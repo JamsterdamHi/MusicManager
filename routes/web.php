@@ -28,6 +28,8 @@ Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name(
 Route::prefix('playlist')->middleware(['auth'])->group(function(){
     Route::get('/{id}', [App\Http\Controllers\PlaylistController::class, 'show'])->name('playlist.show');
     Route::post('/store', [App\Http\Controllers\PlaylistController::class, 'store'])->name('playlist.store');
+    Route::get('/{id}/edit', [App\Http\Controllers\PlaylistController::class, 'edit'])->name('playlist.edit');
+    Route::post('/{id}/destroy', [App\Http\Controllers\playlistController::class,'destroy'])->name('playlist.destroy');
 });
 
 

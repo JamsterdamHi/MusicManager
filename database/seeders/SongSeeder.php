@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Artist;
 use App\Models\Genre;
 use App\Models\Mood;
 use App\Models\Song;

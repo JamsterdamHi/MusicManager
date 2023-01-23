@@ -14,11 +14,11 @@
                 <div class="card">
                     <div class="card-header d-flex flex-row">
                         <div class="card-tools">
-                            <div class="text-right">
+                            <div class="float-right">
                                 <a class="btn btn-secondary btn-sm" href="{{ route('home') }}">戻る</a>
                             </div>
+                        </div>
                     </div>
-                </div>
 
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover text-nowrap">
@@ -36,12 +36,35 @@
                             </thead>
 
                             <tbody>
+                                @foreach ($songs as $song)
+                                    <tr>
+                                        <td>
+                                            <form action="#">
+                                                <div class="col-sm-10">
+                                                    <input type="text" readonly class="form-control-plaintext convertInput" id="comment" name="comment" value="コメント追加" maxlength="50">
+                                                </div>
+                                            </form>
+                                        </td>
+                                        <td>{{ $song->mood->name }}</td>
+                                        <td>{{ $song->genre->name }}</td>
+                                        <td>{{ $song->name }}</td>
+                                        <td>{{ $song->artist_name }}</td>
+                                        <td><a href="{{ $song->youtube_url }}">{{ $song->youtube_url }}</a></td>
+                                        <td>
+                                            <form id="delete_{{ $playlist->id }}" action="{{ route('playlist.destroy', ['id' => $playlist->id]) }}" method="POST">
+                                                    @csrf
+                                                        <a href="#" data-id="{{ $playlist->id }}" onclick="deletePost(this)" class="btn btn-outline-danger btn-sm">削除</a>
+                                            </form>
+                                        </td>
+
+                                    </tr>
+                                @endforeach
                             </tbody>
-                        </form>
+
 
                         </table>
                     </div>
-                </div>
+                </
         </div>
     </div>
 @stop

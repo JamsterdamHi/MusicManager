@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'MyPLAYLIST')
 
 @section('content_header')
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}" class="href">
@@ -19,6 +19,12 @@
                                     @foreach($playlists as $playlist)
                                         <tr>
                                             <td><a href="{{ route('playlist.show', ['id' => $playlist->id]) }}">{{ $playlist->name }}</a></td>
+                                            <td>
+                                                <form id="delete_{{ $playlist->id }}" action="{{ route('playlist.destroy', ['id' => $playlist->id]) }}" method="POST">
+                                                    @csrf
+                                                        <a href="#" data-id="{{ $playlist->id }}" onclick="deletePost(this)" class="btn btn-outline-danger btn-sm">削除</a>
+                                                </form>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -29,6 +35,16 @@
             </div>
         </div>
     </div>
+
+<!-- 確認メッセージ -->
+<script>
+    function deletePost(e){
+        'use strict'
+        if (confirm('本当に削除しますか？')) {
+            document.getElementById('delete_' + e.dataset.id).submit()
+        }
+    }
+</script>
 @stop
 
 @section('css')
