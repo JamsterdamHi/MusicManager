@@ -3,8 +3,20 @@
 @section('title', '商品一覧')
 
 @section('content_header')
-    <h1>曲一覧</h1>
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}" class="href">
+    <p class="h1"><small class="text-muted">Song</small>LIBRARY</p>
+    <p class="h4">曲一覧</p>
 @stop
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 @section('content')
     <div class="row">
@@ -42,16 +54,12 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                 </div>
-                                <form action="{{ route('playlist.store') }}">
+                                <form method="POST" action="{{ route('playlist.store') }}">
+                                    @csrf
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="name">新規プレイリスト名</label>
-                                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="プレイリストのタイトルを入力">
-
-                                                @error('title')
-                                                    <div class="alert alert-danger">{{ $message }}</div>
-                                                @enderror
-
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="プレイリストのタイトルを入力">
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -78,7 +86,7 @@
                                 </tr>
                             </thead>
 
-                        <form id="add_playlist" action="{{ route('playlist.store') }}" method="POST">
+                        <form id="add_playlist" action="#" method="POST">
                         @csrf
                             <tbody>
                                 @foreach ($songs as $song)

@@ -3,11 +3,12 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <p class="h1 text-center">My<small class="text-muted">PLAYLIST</small></p>
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}" class="href">
+    <p class="h1"><small class="text-muted">My</small>PLAYLIST</p>
 @stop
 
 @section('content')
-    <div class="row">
+    <div class="row mt-5">
         <div class="col-md-3"></div>
         <div class="col-md-6">
             <div class="card">

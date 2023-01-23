@@ -3,12 +3,14 @@
 @section('title', '商品登録')
 
 @section('content_header')
-    <h1>曲の編集</h1>
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}" class="href">
+    <p class="h1"><small class="text-muted">Song</small>EDIT</p>
 @stop
 
 @section('content')
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -19,14 +21,14 @@
                 </div>
             @endif
 
-            <div class="card card-primary">
+            <div class="card card-primary my-5">
                 <form method="POST" action="{{ route('songs.update', ['id' => $song->id]) }}">
                     @csrf
                     <div class="card-body">
-
-                    <div class="text-right">
-                        <a class="btn btn-secondary btn-sm" href="{{ route('songs.index') }}">戻る</a>
-                    </div>
+                        <p class="h4 text-center">曲の編集</p>
+                        <div class="text-right">
+                            <a class="btn btn-secondary btn-sm" href="{{ route('songs.index') }}">戻る</a>
+                        </div>
 
 
                         <div class="row mb-3">

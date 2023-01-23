@@ -26,8 +26,8 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('playlist')->middleware(['auth'])->group(function(){
-    Route::post('/', [App\Http\Controllers\PlaylistController::class, 'create'])->name('playlist.store');
-    Route::get('/', [App\Http\Controllers\PlaylistController::class, 'show'])->name('playlist.show');
+    Route::get('/{id}', [App\Http\Controllers\PlaylistController::class, 'show'])->name('playlist.show');
+    Route::post('/store', [App\Http\Controllers\PlaylistController::class, 'store'])->name('playlist.store');
 });
 
 

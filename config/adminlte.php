@@ -227,17 +227,10 @@ return [
 
     'menu' => [
         [
-            'text' => 'プレイリスト一覧',
+            'text' => 'プレイリスト',
             'url'  => 'home',
             'icon' => 'fa-solid fa-record-vinyl',
         ],
-
-        [
-            'text' => 'Myプレイリスト',
-            'url'  => 'playlist',
-            'icon' => 'fa-solid fa-record-vinyl',
-        ],
-
 
         [
             'text' => '曲一覧',

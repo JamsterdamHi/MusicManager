@@ -1,0 +1,10 @@
+.h1{
+  font-size: 100px;
+  text-align: right;
+  color: rgb(204, 204, 204);
+  margin: -40px 0px -50px 0px;
+}
+
+.text-muted{
+  color: rgba(112, 128, 144, 0.699);
+}

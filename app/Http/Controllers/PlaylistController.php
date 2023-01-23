@@ -27,19 +27,7 @@ class PlaylistController extends Controller
      */
     public function create()
     {
-                // ① ユーザーが登録したプレイリスト名を受け取る
-                $playlist = Playlist::find('name');
-
-                // ② ①のプレイリスト名をバリデーションする
-                // バリデーションルールは必須かつユニーク（重複がない）
-                $validatedData = $playlist->validate([
-                    'name' => ['required', 'unique', 'max:30'],
-                ]);
-        
-                // ③ ②のバリデーションが通ればplaylistテーブルに登録
-                $playlist->save();
-        
-                return redirect('/songs');
+        //
     }
 
     /**
@@ -50,7 +38,23 @@ class PlaylistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // ①プレイリスト名をバリデーションする
+        // バリデーションルールは必須かつユニーク（重複がない）
+        $validatedData = $request->validate([
+            'name' => ['required', 'unique:playlists', 'max:50'],
+        ],[
+            'name.required'=>'プレイリスト名は必須です',
+            'name.unique'=>'すでに登録されているプレイリスト名です',
+            'name.max'=>'プレイリスト名が長過ぎです'
+        ]);
+
+        // ②バリデーションが通ればplaylistテーブルに登録        
+        Playlist::create([
+            'name' => $request->name,
+            'user_id' => Auth::user()->id,
+        ]);
+                
+        return redirect('home');
     }
 
     /**
@@ -58,8 +62,10 @@ class PlaylistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
+    public function show($id)
     {
+        // dd($id);
+
         $playlist = Playlist::find($id);
 
         return view('playlist', compact('playlist'));
