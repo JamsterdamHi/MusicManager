@@ -31,7 +31,7 @@
                                     </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             @foreach ($playlists as $playlist)
-                                                <button form="add_songs" type="submit" class="dropdown-item">{{ $playlist->name }}</button>
+                                                <button form="add_songs" type="submit" class="dropdown-item" name="playlist_id" value="{{ $playlist->id }}">{{ $playlist->name }}</button>
                                             @endforeach
                                         </div>
                                 </div>
@@ -87,15 +87,16 @@
                             </thead>
 
                             <tbody>
+                                <form id="add_songs" action="{{ route('songs.add_songs') }}" method="POST">
+                                                @csrf
+
                                 @foreach ($songs as $song)
                                     <tr>
                                         <td>
-                                            <form id="add_songs" action="{{ route('add_songs', ['id' => $playlist->id]) }}" method="POST">
-                                                @csrf
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" name="songs[]" value="{{ $song->id }}">
                                                 </div>
-                                            </form>
+
                                         </td>
                                         <td>{{ $song->mood->name }}</td>
                                         <td>{{ $song->genre->name }}</td>
@@ -105,6 +106,7 @@
                                         <td><a href="{{ route('songs.edit', ['id' => $song->id]) }}" class="btn btn-primary btn-sm">編集</a></td>
                                     </tr>
                                 @endforeach
+                                </form>
                             </tbody>
                         </table>
                     </div>
