@@ -93,8 +93,15 @@ class SongController extends Controller
         /**
      * プレイリストへ曲の登録
      */
-    public function add_songs(Request $request)
+    public function add_songs(Request $request, $id)
     {
+        $playlist = Playlist::find($id);
+        if ($request->filled('songs[]')) {
+            $playlist->songs()->attach($request->song_id);
+        }else {
+            return view('/songs');
+        }
+
         dd($request);
 
         return redirect('/playlist');

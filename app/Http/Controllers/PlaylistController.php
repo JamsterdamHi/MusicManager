@@ -112,4 +112,20 @@ class PlaylistController extends Controller
 
         return redirect('home');
     }
+
+    /**
+     * 中間テーブルへの値保存
+     */
+    public function write(Request $request, $id)
+    {
+        $playlist = Playlist::find($id);
+        $note = ['note' => $request->note];
+
+        $playlist->songs()->attach($request->song_id, $note);
+
+        // dd($playlist, $note);
+
+        return redirect()->route('playlist.show',[$id]);
+    }
 }
+

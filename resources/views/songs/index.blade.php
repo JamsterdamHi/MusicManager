@@ -29,11 +29,11 @@
                                     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         プレイリストへ追加
                                     </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        @foreach ($playlists as $playlist)
-                                            <button form="to_playlist" type="submit" class="dropdown-item">{{ $playlist->name }}</button>
-                                        @endforeach
-                                    </div>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            @foreach ($playlists as $playlist)
+                                                <button form="add_songs" type="submit" class="dropdown-item">{{ $playlist->name }}</button>
+                                            @endforeach
+                                        </div>
                                 </div>
                                 <div class="input-group-append">
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -86,15 +86,16 @@
                                 </tr>
                             </thead>
 
-                        <form id="add_playlist" action="#" method="POST">
-                        @csrf
                             <tbody>
                                 @foreach ($songs as $song)
                                     <tr>
                                         <td>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="songs[]" value="{{ $song->id }}">
-                                            </div>
+                                            <form id="add_songs" action="{{ route('add_songs', ['id' => $playlist->id]) }}" method="POST">
+                                                @csrf
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="songs[]" value="{{ $song->id }}">
+                                                </div>
+                                            </form>
                                         </td>
                                         <td>{{ $song->mood->name }}</td>
                                         <td>{{ $song->genre->name }}</td>
@@ -105,7 +106,6 @@
                                     </tr>
                                 @endforeach
                             </tbody>
-                        </form>
                         </table>
                     </div>
                 </div>

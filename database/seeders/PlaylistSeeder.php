@@ -25,7 +25,7 @@ class PlaylistSeeder extends Seeder
              // 中間テーブルに紐付け
             $playlist->songs()->attach(
                 $songs->random($ran)->pluck('id')->toArray(),
-            ['comment'=>'PlayList']);
+            ['note'=>'PlayList']);
         });        
     }
 }

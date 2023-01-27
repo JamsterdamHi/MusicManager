@@ -20,10 +20,12 @@
                                         <tr>
                                             <td><a href="{{ route('playlist.show', ['id' => $playlist->id]) }}">{{ $playlist->name }}</a></td>
                                             <td>
-                                                <form id="delete_{{ $playlist->id }}" action="{{ route('playlist.destroy', ['id' => $playlist->id]) }}" method="POST">
-                                                    @csrf
-                                                        <a href="#" data-id="{{ $playlist->id }}" onclick="deletePost(this)" class="btn btn-outline-danger btn-sm">削除</a>
-                                                </form>
+                                                <div class="text-right">  
+                                                    <form id="delete_{{ $playlist->id }}" action="{{ route('playlist.destroy', ['id' => $playlist->id]) }}" method="POST">
+                                                        @csrf
+                                                            <a href="#" data-id="{{ $playlist->id }}" onclick="deletePost(this)" class="btn btn-outline-danger btn-sm">削除</a>
+                                                    </form>
+                                                </div>  
                                             </td>
                                         </tr>
                                     @endforeach

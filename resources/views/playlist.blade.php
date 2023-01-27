@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="card-header d-flex flex-row">
                         <div class="card-tools">
-                            <div class="float-right">
+                            <div class="text-right">
                                 <a class="btn btn-secondary btn-sm" href="{{ route('home') }}">戻る</a>
                             </div>
                         </div>
@@ -24,6 +24,7 @@
                         <table class="table table-hover text-nowrap">
                             <thead>
                                 <tr>
+                                  
                                     <th>コメント</th>
                                     <th>ムード</th>
                                     <th>ジャンル</th>                    
@@ -39,10 +40,13 @@
                                 @foreach ($songs as $song)
                                     <tr>
                                         <td>
-                                            <form action="#">
-                                                <div class="col-sm-10">
-                                                    <input type="text" readonly class="form-control-plaintext convertInput" id="comment" name="comment" value="コメント追加" maxlength="50">
-                                                </div>
+                                            <form method="POST" action="{{ route('playlist.write', ['id' => $playlist->id]) }}">
+                                                @csrf
+
+                                                <input class="appearance-none border rounded py-2 px-3 text-gray-700" type="text" name="note" class="form-control" id="note" value="{{ $song->pivot->note }}" placeholder="コメント入力"> 
+                                                <button class="bg-blue-500" type="submit">
+                                                    送信
+                                                </button>
                                             </form>
                                         </td>
                                         <td>{{ $song->mood->name }}</td>
@@ -50,6 +54,7 @@
                                         <td>{{ $song->name }}</td>
                                         <td>{{ $song->artist_name }}</td>
                                         <td><a href="{{ $song->youtube_url }}">{{ $song->youtube_url }}</a></td>
+
                                         <td>
                                             <form id="delete_{{ $playlist->id }}" action="{{ route('playlist.destroy', ['id' => $playlist->id]) }}" method="POST">
                                                     @csrf

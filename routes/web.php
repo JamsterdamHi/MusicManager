@@ -27,6 +27,7 @@ Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name(
 
 Route::prefix('playlist')->middleware(['auth'])->group(function(){
     Route::get('/{id}', [App\Http\Controllers\PlaylistController::class, 'show'])->name('playlist.show');
+    Route::post('/{id}/write', [App\Http\Controllers\PlaylistController::class, 'write'])->name('playlist.write');
     Route::post('/store', [App\Http\Controllers\PlaylistController::class, 'store'])->name('playlist.store');
     Route::get('/{id}/edit', [App\Http\Controllers\PlaylistController::class, 'edit'])->name('playlist.edit');
     Route::post('/{id}/destroy', [App\Http\Controllers\playlistController::class,'destroy'])->name('playlist.destroy');
@@ -40,6 +41,7 @@ Route::prefix('songs')->middleware(['auth'])->name('songs.')->group(function () 
     Route::get('/{id}/edit', [App\Http\Controllers\SongController::class, 'edit'])->name('edit');
     Route::post('/{id}', [App\Http\Controllers\SongController::class, 'update'])->name('update');
     Route::post('/{id}/destroy', [App\Http\Controllers\SongController::class,'destroy'])->name('destroy');
+    Route::post('/add_songs', [App\Http\Controllers\SongController::class, 'add_songs'])->name('add_songs');
 
     // need to login
     // Route::get('/add', [App\Http\Controllers\ItemController::class, 'add']);
