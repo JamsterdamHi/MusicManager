@@ -24,7 +24,6 @@
                         <table class="table table-hover text-nowrap">
                             <thead>
                                 <tr>
-                                  
                                     <th>コメント</th>
                                     <th>ムード</th>
                                     <th>ジャンル</th>                    
@@ -42,7 +41,7 @@
                                         <td>
                                             <form method="POST" action="{{ route('playlist.write', ['id' => $playlist->id]) }}">
                                                 @csrf
-
+                                                <input type="hidden" name="song_id" value="{{ $song->id }}">
                                                 <input class="appearance-none border rounded py-2 px-3 text-gray-700" type="text" name="note" class="form-control" id="note" value="{{ $song->pivot->note }}" placeholder="コメント入力"> 
                                                 <button class="bg-blue-500" type="submit">
                                                     送信

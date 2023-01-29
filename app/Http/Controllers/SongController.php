@@ -104,8 +104,6 @@ class SongController extends Controller
             return redirect()->back();
         }
 
-        // dd($request);
-
-        return redirect('/playlist');
+        return redirect()->route('playlist.show',$request->playlist_id);
     }
 }

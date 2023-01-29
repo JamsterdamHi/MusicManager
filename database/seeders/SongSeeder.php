@@ -17,7 +17,7 @@ class SongSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 50; $i++) {
             $genre = Genre::inRandomOrder()->first();
             $mood = Mood::inRandomOrder()->first();
             $user = User::inRandomOrder()->first();
