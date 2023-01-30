@@ -16,9 +16,11 @@ class SongController extends Controller
      */
     public function index()
     {
-        // 商品一覧取得
-        $songs = Song::all();
+        // 曲一覧取得、ペジネーション対応
+        $songs = Song::orderBy('name')->paginate(10);
+        // ドロップダウン表示
         $playlists = Playlist::all();
+
         return view('songs.index', compact('songs', 'playlists'));
     }
 
@@ -97,6 +99,11 @@ class SongController extends Controller
         $playlist = Playlist::find($request->playlist_id);
         if ($request->filled('songs')) {
             $playlist->songs()->attach($request->songs);
+            $seq = ['seq' => $request->seq];
+            $playlist->songs()->sync($seq);
+
+            dd($playlist);
+
         }else {
             return redirect()->back();
         }
@@ -115,7 +122,6 @@ class SongController extends Controller
     {
         $playlist = Playlist::find($request->playlist_id);
         $playlist->songs()->detach($request->song_id);
-        dd($request);
 
         return redirect()->route('playlist.show',$request->playlist_id);
     }

@@ -68,6 +68,9 @@ class PlaylistController extends Controller
         $playlist = Playlist::find($id);
         // そのプレイリストに紐づいた曲を表示する
         $songs = Playlist::find($id)->songs()->get();
+        $sortSongs = $songs -> sortBy('seq');
+
+        // dd($sortSongs);
 
         return view('playlist', compact('playlist', 'songs'));
     }

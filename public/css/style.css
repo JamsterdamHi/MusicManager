@@ -8,3 +8,11 @@
 .text-muted{
   color: rgba(112, 128, 144, 0.699);
 }
+
+.ui-sortable-handle {
+  cursor: grab;
+}
+
+.ui-sortable-handle:active {
+  cursor: grabbing;
+}
