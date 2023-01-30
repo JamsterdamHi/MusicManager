@@ -11,7 +11,6 @@ use App\Http\Requests\StoreSongRequest;
 
 class SongController extends Controller
 {
-
     /**
      * 曲一覧
      */
@@ -36,8 +35,6 @@ class SongController extends Controller
      */
     public function store(StoreSongRequest $request)
     {
-        // dd($request);
-
         Song::create([
             'name' => $request->name,
             'youtube_url' => $request->youtube_url,
@@ -79,7 +76,7 @@ class SongController extends Controller
         return redirect('/songs');
     }
 
-        /**
+    /**
      * 曲の削除
      */
     public function destroy($id)
@@ -90,19 +87,35 @@ class SongController extends Controller
         return redirect('/songs');
     }
 
-        /**
+    /**
      * プレイリストへ曲の登録
+     * @param Request $request
+     * @return void
      */
     public function add_songs(Request $request)
     {
-        // dd($request);
-
         $playlist = Playlist::find($request->playlist_id);
         if ($request->filled('songs')) {
             $playlist->songs()->attach($request->songs);
         }else {
             return redirect()->back();
         }
+
+        return redirect()->route('playlist.show',$request->playlist_id);
+    }
+
+    /**
+     * プレイリストから曲を削除
+     *
+     * @param Request $request
+     * @param [type] $id
+     * @return void
+     */
+    public function remove_song(Request $request)
+    {
+        $playlist = Playlist::find($request->playlist_id);
+        $playlist->songs()->detach($request->song_id);
+        dd($request);
 
         return redirect()->route('playlist.show',$request->playlist_id);
     }

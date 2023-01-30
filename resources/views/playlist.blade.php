@@ -55,9 +55,9 @@
                                         <td><a href="{{ $song->youtube_url }}">{{ $song->youtube_url }}</a></td>
 
                                         <td>
-                                            <form id="delete_{{ $playlist->id }}" action="{{ route('playlist.destroy', ['id' => $playlist->id]) }}" method="POST">
+                                            <form method="POST" action="#">
                                                     @csrf
-                                                        <a href="#" data-id="{{ $playlist->id }}" onclick="deletePost(this)" class="btn btn-outline-danger btn-sm">削除</a>
+                                                    <button type="submit" onclick="deletePost(this)" class="btn btn-outline-danger btn-sm">削除</button>
                                             </form>
                                         </td>
 

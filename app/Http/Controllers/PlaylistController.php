@@ -121,6 +121,7 @@ class PlaylistController extends Controller
         $playlist = Playlist::find($id);
         $note = ['note' => $request->note];
 
+        $playlist->songs()->detach($request->song_id, 'note');
         $playlist->songs()->attach($request->song_id, $note);
 
         // dd($playlist, $note);
