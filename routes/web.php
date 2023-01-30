@@ -29,7 +29,7 @@ Route::prefix('playlist')->middleware(['auth'])->group(function(){
     Route::get('/{id}', [PlaylistController::class, 'show'])->name('playlist.show');
     Route::post('/{id}/write', [PlaylistController::class, 'write'])->name('playlist.write');
     Route::post('/store', [PlaylistController::class, 'store'])->name('playlist.store');
-    Route::get('/{id}/edit', [PlaylistController::class, 'edit'])->name('playlist.edit');
+    Route::post('/{id}', [PlaylistController::class, 'update'])->name('playlist.update');
     Route::post('/{id}/destroy', [playlistController::class,'destroy'])->name('playlist.destroy');
 });
 

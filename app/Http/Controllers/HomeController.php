@@ -19,7 +19,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * ホーム画面の表示（プレイリスト一覧）
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */

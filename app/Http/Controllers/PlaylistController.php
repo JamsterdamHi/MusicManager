@@ -32,7 +32,7 @@ class PlaylistController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * プレイリストの追加
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -58,7 +58,7 @@ class PlaylistController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * 各プレイリスト表示
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -84,14 +84,11 @@ class PlaylistController extends Controller
      */
     public function edit($id)
     {
-        $playlist = Playlist::find($id);
-        $song = Playlist::find($id)->songs()->get();
-
-        return view('playlist.edit', compact('playlist', 'song'));
+        //
     }
 
     /**
-     * Update the specified resource in storage.
+     * プレイリスト名変更
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -99,11 +96,16 @@ class PlaylistController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $playlist = Playlist::find($id);
+        $playlist->name = $request->name;
+
+        $playlist->save();
+
+        return redirect()->route('playlist.show',[$id]);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * プレイリストの削除
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -117,7 +119,7 @@ class PlaylistController extends Controller
     }
 
     /**
-     * 中間テーブルへの値保存
+     * 中間テーブルへの「コメント」保存
      */
     public function write(Request $request, $id)
     {

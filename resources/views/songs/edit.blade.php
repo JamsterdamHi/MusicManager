@@ -96,21 +96,19 @@
             </div>
         </div>
     </div>
-
-<!-- 確認メッセージ -->
-<script>
-    function deletePost(e){
-        'use strict'
-        if (confirm('本当に削除しますか？')) {
-            document.getElementById('delete_' + e.dataset.id).submit()
-        }
-    }
-</script>
-
 @stop
 
 @section('css')
 @stop
 
 @section('js')
+<!-- 確認メッセージ -->
+    <script>
+        function deletePost(e){
+            'use strict'
+            if (confirm('本当に削除しますか？')) {
+                document.getElementById('delete_' + e.dataset.id).submit()
+            }
+        }
+    </script>
 @stop

@@ -3,8 +3,10 @@
 @section('title', '商品一覧')
 
 @section('content_header')
-    <p class="h1"><small class="text-muted">My</small>PLAYLIST</p>
-    <h1>{{ $playlist->name }}</h1>
+    <form method="POST" action="{{ route('playlist.update', ['id' => $playlist->id]) }}" onsubmit="return true;">
+        @csrf
+        <input type="text" name="name" id="name" class="h2 border-0 w-75 bg-transparent" value="{{ $playlist->name }}"> 
+    </form>
 @stop
 
 @section('content')
@@ -20,7 +22,7 @@
                 </div>
 
                 <div class="card-body table-responsive p-0">
-                    <table class="table table-hover text-nowrap">
+                    <table class="table table-hover text-nowrap table-sm">
                         <thead>
                             <tr>
                                 <th>コメント</th>
@@ -42,7 +44,7 @@
                                         <form method="POST" action="{{ route('playlist.write', ['id' => $playlist->id]) }}" onsubmit="return true;">
                                             @csrf
                                             <input type="hidden" name="song_id" value="{{ $song->id }}">
-                                            <input class="appearance-none border rounded py-2 px-3 text-gray-700" type="text" name="note" class="form-control" id="note" value="{{ $song->pivot->note }}" placeholder="コメント入力"> 
+                                            <input class="appearance-none border rounded px-3 text-gray-700 input-sm" type="text" name="note" class="form-control" id="note" value="{{ $song->pivot->note }}" placeholder="コメント入力"> 
                                         </form>
                                     </td>
                                     <td>{{ $song->mood->name }}</td>
@@ -76,9 +78,12 @@
 @stop
 
 @section('js')
+    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- jQuery UI -->
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
 
+    <!-- ドラッグ＆ドロップ -->
     <script>
         $(function () {
             $("#sort").sortable({
@@ -93,4 +98,15 @@
             });
         });
     </script>
+
+    <!-- 確認メッセージ -->
+    <script>
+        function deletePost(e){
+            'use strict'
+            if (confirm('本当に削除しますか？')) {
+                document.getElementById('delete_' + e.dataset.id).submit()
+            }
+        }
+    </script>
+
 @stop

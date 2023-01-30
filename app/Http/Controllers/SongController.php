@@ -17,7 +17,7 @@ class SongController extends Controller
     public function index()
     {
         // 曲一覧取得、ペジネーション対応
-        $songs = Song::orderBy('name')->paginate(10);
+        $songs = Song::orderBy('name')->paginate(15);
         // ドロップダウン表示
         $playlists = Playlist::all();
 
