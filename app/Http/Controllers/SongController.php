@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Song;
 use App\Models\Playlist;
+use App\Models\PlaylistSong;
 use App\Services\CheckFormService;
 use App\Http\Requests\StoreSongRequest;
 
@@ -99,10 +100,15 @@ class SongController extends Controller
         $playlist = Playlist::find($request->playlist_id);
         if ($request->filled('songs')) {
             $playlist->songs()->attach($request->songs);
-            $seq = ['seq' => $request->seq];
-            $playlist->songs()->sync($seq);
 
-            dd($playlist);
+            $maxSeq = PlaylistSong::where('playlist_id', $request->playlist_id)->max('seq');
+
+            foreach ($request->songs as $song_id) {
+                $playlistSong = PlaylistSong::where('playlist_id', $request->playlist_id)->where('song_id', $song_id)->first();
+                $playlistSong->seq=$maxSeq+1;
+                $playlistSong->update();
+                $maxSeq++;
+            }
 
         }else {
             return redirect()->back();

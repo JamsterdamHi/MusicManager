@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Playlist;
 use App\Models\Song;
+use App\Models\PlaylistSong;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\BinaryOp\Plus;
-use Illuminate\Support\Facades\DB;
 
 class PlaylistController extends Controller
 {
@@ -58,7 +58,7 @@ class PlaylistController extends Controller
     }
 
     /**
-     * 各プレイリスト表示
+     * 各プレイリストの詳細表示
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -67,14 +67,11 @@ class PlaylistController extends Controller
         // 選択したプレイリストを表示する
         $playlist = Playlist::find($id);
         // そのプレイリストに紐づいた曲を表示する
-        $songs = Playlist::find($id)->songs()->get();
+        $songs = Playlist::find($id)->songs()->paginate(15);
         $sortSongs = $songs -> sortBy('seq');
-
-        // dd($sortSongs);
 
         return view('playlist', compact('playlist', 'songs'));
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -123,13 +120,17 @@ class PlaylistController extends Controller
      */
     public function write(Request $request, $id)
     {
-        $playlist = Playlist::find($id);
-        $note = ['note' => $request->note];
+        // dd($request);
 
-        $playlist->songs()->detach($request->song_id, 'note');
-        $playlist->songs()->attach($request->song_id, $note);
+        $playlistSong = PlaylistSong::where('playlist_id', $id)->where('song_id', $request->song_id)->first();
 
-        // dd($playlist, $note);
+        // dd($playlistSong);
+
+        $playlistSong->note = $request->note;
+
+ 
+
+        $playlistSong->update();
 
         return redirect()->route('playlist.show',[$id]);
     }

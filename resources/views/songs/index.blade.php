@@ -73,7 +73,7 @@
 
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap table-sm">
-                        <thead>
+                        <thead class="table-dark">
                             <tr>
                                 <th></th>
                                 <th>ムード</th>
@@ -86,7 +86,7 @@
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody class="table table-striped">
                             <form id="add_songs" action="{{ route('songs.add_songs') }}" method="POST">
                                             @csrf
 
@@ -95,7 +95,6 @@
                                     <td>
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" name="songs[]" value="{{ $song->id }}">
-                                            <input type="hidden" class="seq" value="{{ $i+1 }}" name="seq{{ $i+1 }}">
                                         </div>
 
                                     </td>

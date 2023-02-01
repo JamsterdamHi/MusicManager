@@ -12,7 +12,7 @@ class Playlist extends Model
 
     public function songs()
     {
-        return $this->belongsToMany(Song::class)->withPivot('note', 'seq');
+        return $this->belongsToMany(Song::class)->withPivot('note', 'seq')->using(PlaylistSong::class);
     }
     protected $fillable = [
         'name',
