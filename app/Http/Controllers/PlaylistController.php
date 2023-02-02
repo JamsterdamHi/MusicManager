@@ -70,8 +70,17 @@ class PlaylistController extends Controller
         $songs = Playlist::find($id)->songs()->paginate(15);
         $sortSongs = $songs -> sortBy('seq');
 
+        // dd($sortSongs);
+
         return view('playlist', compact('playlist', 'songs'));
     }
+
+    public function replace(Request $request, $id)
+    {
+        //jQuery ドラッグ＆ドロップで並び替えたseqデータを保存
+        
+    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -120,16 +129,8 @@ class PlaylistController extends Controller
      */
     public function write(Request $request, $id)
     {
-        // dd($request);
-
         $playlistSong = PlaylistSong::where('playlist_id', $id)->where('song_id', $request->song_id)->first();
-
-        // dd($playlistSong);
-
         $playlistSong->note = $request->note;
-
- 
-
         $playlistSong->update();
 
         return redirect()->route('playlist.show',[$id]);

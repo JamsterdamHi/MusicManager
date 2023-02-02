@@ -39,7 +39,7 @@
                         <tbody id="sort">
                             @foreach ($songs as $i => $song)
                                 <tr id="{{ $i+1 }}">
-                                    <input type="hidden" class="seq" value="{{ $i+1 }}" name="seq{{ $i+1 }}">
+                                    <input type="hidden" class="in_order" value="{{ $i+1 }}" name="in_order{{ $i+1 }}">
                                     <td>
                                         <form method="POST" action="{{ route('playlist.write', ['id' => $playlist->id]) }}" onsubmit="return true;">
                                             @csrf
@@ -79,37 +79,10 @@
 @stop
 
 @section('js')
-    <script src="{{ asset('/js/playlist.js') }}"></script>
-
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- jQuery UI -->
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
 
-    <!-- ドラッグ＆ドロップ -->
-    <script>
-        $(function () {
-            $("#sort").sortable({
-                update: function () {
-                    $("#log").text($('#sort').sortable("toArray"));
-                    var i = 1;
-                    $(".seq").each(function () {
-                        var seq = $(this).val(i);
-                        i++;
-                    });
-                }
-            });
-        });
-    </script>
-
-    <!-- 確認メッセージ -->
-    <script>
-        function deletePost(e){
-            'use strict'
-            if (confirm('本当に削除しますか？')) {
-                document.getElementById('delete_' + e.dataset.id).submit()
-            }
-        }
-    </script>
-
+    <script src="{{ asset('/js/playlist.js') }}"></script>
 @stop

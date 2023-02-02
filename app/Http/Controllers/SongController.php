@@ -56,7 +56,6 @@ class SongController extends Controller
     public function edit($id)
     {
         $song = Song::find($id);
-
         $genre = CheckFormService::checkGenre($song);
         $mood = CheckFormService::checkMood($song);
 
@@ -101,8 +100,12 @@ class SongController extends Controller
         if ($request->filled('songs')) {
             $playlist->songs()->attach($request->songs);
 
+            // 現PlaylistSongテーブルのseqの最大値
             $maxSeq = PlaylistSong::where('playlist_id', $request->playlist_id)->max('seq');
 
+            // song_id が同じ場合の条件式
+
+            // PlaylistSongテーブルのseqに順番に数値を付与する処理
             foreach ($request->songs as $song_id) {
                 $playlistSong = PlaylistSong::where('playlist_id', $request->playlist_id)->where('song_id', $song_id)->first();
                 $playlistSong->seq=$maxSeq+1;

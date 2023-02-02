@@ -27,12 +27,12 @@ Route::get('home', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('playlist')->middleware(['auth'])->group(function(){
     Route::get('/{id}', [PlaylistController::class, 'show'])->name('playlist.show');
+    Route::post('/{id}/replace', [PlaylistController::class, 'replace'])->name('playlist.replace');
     Route::post('/{id}/write', [PlaylistController::class, 'write'])->name('playlist.write');
     Route::post('/store', [PlaylistController::class, 'store'])->name('playlist.store');
     Route::post('/{id}', [PlaylistController::class, 'update'])->name('playlist.update');
     Route::post('/{id}/destroy', [playlistController::class,'destroy'])->name('playlist.destroy');
 });
-
 
 Route::prefix('songs')->middleware(['auth'])->name('songs.')->group(function () {
     Route::get('/', [SongController::class, 'index'])->name('index');
