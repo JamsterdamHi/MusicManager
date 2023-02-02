@@ -3,7 +3,6 @@
 @section('title', '曲一覧')
 
 @section('content_header')
-    <link rel="stylesheet" href="{{ asset('/css/style.css') }}" class="href">
     <p class="h1"><small class="text-muted">Song</small>LIBRARY</p>
     <p class="h4">曲一覧</p>
 @stop
@@ -72,8 +71,8 @@
                 </div>
 
                 <div class="card-body table-responsive p-0">
-                    <table class="table table-hover text-nowrap table-sm">
-                        <thead class="table-dark">
+                    <table id="sorter" class="table table-hover text-nowrap table-sm">
+                        <thead class="table-light">
                             <tr>
                                 <th></th>
                                 <th>ムード</th>
@@ -81,7 +80,6 @@
                                 <th>曲名</th>
                                 <th>アーティスト名</th>
                                 <th>試聴</th>
-                                <th></th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -111,14 +109,22 @@
                     </table>
                 </div>
             </div>
-        {{ $songs->links('pagination::bootstrap-4') }}
-
         </div>
     </div>
 @stop
 
 @section('css')
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}" class="href">
 @stop
 
 @section('js')
+    <!-- Scripts -->
+    <script src="{{ mix('js/function.js') }}"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- jQuery UI -->
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <!-- tablesorter -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.1/js/jquery.tablesorter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.1/js/extras/jquery.metadata.min.js"></script>
 @stop

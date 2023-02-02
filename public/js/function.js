@@ -73,3 +73,14 @@ function deletePost(e){
         document.getElementById('delete_' + e.dataset.id).submit()
     }
 }
+
+// -- tablesorter --
+$(function() {
+    $('#sorter').tablesorter({
+        headers: {
+            0: {sorter:false},
+            5: {sorter:false},
+            6: {sorter:false}
+        }
+    });
+});

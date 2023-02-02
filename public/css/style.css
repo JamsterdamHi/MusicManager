@@ -16,3 +16,43 @@
 .ui-sortable-handle:active {
   cursor: grabbing;
 }
+
+.tablesorter-header-inner {
+  display: inline-block;
+}
+
+.tablesorter-headerUnSorted:after 
+{
+  position: relative;
+  margin-left: 10px;
+  content: none;
+  color: #000000;
+  font-size: 1.2rem;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.tablesorter-headerAsc:after 
+{
+  position: relative;
+  margin-left: 10px;
+  content: none;
+  color: #000000;
+  font-size: 1.2rem;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.tablesorter-headerDesc:after 
+{
+  position: relative;
+  margin-left: 10px;
+  content: none;
+  color: #000000;
+  font-size: 1.2rem;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  line-height: 1.4;
+}
