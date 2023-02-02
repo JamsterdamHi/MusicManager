@@ -78,7 +78,16 @@ class PlaylistController extends Controller
     public function replace(Request $request, $id)
     {
         //jQuery ドラッグ＆ドロップで並び替えたseqデータを保存
-        
+        foreach ($_POST['seq'] as $key => $val) {
+            $strSql = 'UPDATE playlist_song SET seq = :seq WHERE song_id = :song_id';
+            $params = [
+                ':song_id' => $key,
+                ':seq' => $val,
+            ];
+            $result = $obj->insert($strSql, $params);
+        }
+
+        return redirect()->route('playlist.show',[$id]);
     }
 
 
