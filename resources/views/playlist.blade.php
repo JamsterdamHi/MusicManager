@@ -56,7 +56,7 @@
                                                 @csrf
                                                 <input type="hidden" name="song_id" value="{{ $song->id }}">
                                                 <input type="hidden" name="playlist_id" value="{{ $playlist->id }}">
-                                                <button type="submit" onclick="deletePost(this)" class="btn btn-outline-danger btn-sm">削除</button>
+                                                <button type="submit" onclick="deletePost(this)" class="btn btn-outline-danger btn-sm rounded-circle">ー</button>
                                         </form>
                                     </td>
                                 </tr>

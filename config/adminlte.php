@@ -46,8 +46,7 @@ return [
     */
 
     'logo' => '<b>MusicManager</b>',
-    // 'logo_img' => 'fa-duotone fa-turntable',
-    'logo_img' => 'vendor/adminlte/dist/img/169578.png',
+    'logo_img' => 'vendor/adminlte/dist/img/PngItem_2671092.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -229,19 +228,19 @@ return [
         [
             'text' => 'プレイリスト',
             'url'  => 'home',
-            'icon' => 'fa-solid fa-record-vinyl',
+            'icon' => 'fas fa-play-circle',
         ],
 
         [
             'text' => '曲一覧',
             'url'  => 'songs',
-            'icon' => 'fa-duotone fa-record-vinyl',
+            'icon' => 'fas fa-play-circle',
         ],
 
         [
             'text' => '曲を追加',
             'url'  => 'songs/create',
-            'icon' => 'fa-duotone fa-record-vinyl',
+            'icon' => 'fas fa-play-circle',
         ],
 
 
