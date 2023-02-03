@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $playlists = Playlist::all();
+        $playlists = Playlist::orderBy('created_at')->paginate(12);
         return view('home', compact('playlists'));
     }
 

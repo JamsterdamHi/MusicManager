@@ -67,26 +67,28 @@ class PlaylistController extends Controller
         // 選択したプレイリストを表示する
         $playlist = Playlist::find($id);
         // そのプレイリストに紐づいた曲を表示する
-        $songs = Playlist::find($id)->songs()->orderBy('seq')->paginate(15);
-
-        // dd($sortSongs);
+        $songs = Playlist::find($id)->songs()->orderBy('seq')->get();
 
         return view('playlist', compact('playlist', 'songs'));
     }
 
+    /**
+     * ドラッグ＆ドロップで並び替えたajax通信のデータを保存
+     *
+     * @param Request $request
+     * @param [type] $id
+     * @return void
+     */
     public function replace(Request $request, $id)
     {
-        //jQuery ドラッグ＆ドロップで並び替えたseqデータを保存
         $playlist = Playlist::find($id);
-
         foreach ($request->song_ids as $i=> $song_id) {
-
             $playlistSong = PlaylistSong::where('playlist_id', $id)->where('song_id', $song_id)->first();
-
+            // seqを i+1 の順番で上書き
             $playlistSong->seq=$i+1;
-
             $playlistSong->save();
         }
+        // ajax通信はredirectは不要。代わりにとりあえずの処理。
         echo json_encode([$request->seqs, $request->song_ids]);
     }
 

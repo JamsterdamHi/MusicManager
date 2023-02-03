@@ -32,7 +32,6 @@
                                 <th>アーティスト名</th>
                                 <th>試聴</th>
                                 <th></th>
-                                <th></th>
                             </tr>
                         </thead>
 
@@ -52,7 +51,6 @@
                                     <td>{{ $song->name }}</td>
                                     <td>{{ $song->artist_name }}</td>
                                     <td><a href="{{ $song->youtube_url }}">{{ $song->youtube_url }}</a></td>
-
                                     <td>
                                         <form method="POST" action="{{ route('songs.remove_song' ) }}">
                                                 @csrf
@@ -67,9 +65,7 @@
 
                     </table>
                 </div>
-
             </div>
-            {{ $songs->links('pagination::bootstrap-4') }}
         </div>
     </div>
 @stop

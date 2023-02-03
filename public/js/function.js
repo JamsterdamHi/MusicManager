@@ -30,6 +30,7 @@ eval("//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset
 /******/ 	
 /******/ })()
 ;
+
 // -- ドラッグ＆ドロップ --
 $(function () {
     $("#sort").sortable({
@@ -38,14 +39,13 @@ $(function () {
             var song_ids = [];
             var playlist_id = 0;
             $(".inOrder").each(function (i,element) {
-                // var inOrder = v.val();
                 inOrder.push(element.value);
                 playlist_id = $(this).data('playlist-id');
                 song_ids.push($(this).data('song-id'));
             });
             console.log(inOrder);
 
-        // -- 並び替えしたseqデータをajax通信 --
+        // -- 並び替えしたsong_idsとseqsデータをajax通信 --
             $.ajax({
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 type: "post", //HTTP通信の種類
@@ -67,7 +67,6 @@ $(function () {
         }
     });
 });
-
 
 // -- 確認メッセージ --
 function deletePost(e){

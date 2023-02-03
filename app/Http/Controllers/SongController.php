@@ -28,6 +28,7 @@ class SongController extends Controller
 
     /**
      * 曲登録画面の表示
+     * @param Request $request
      */
     public function create(Request $request)
     {
@@ -35,7 +36,10 @@ class SongController extends Controller
     }
 
     /**
-     * 曲登録
+     * 曲の登録
+     *
+     * @param StoreSongRequest $request
+     * @return void
      */
     public function store(StoreSongRequest $request)
     {
@@ -53,6 +57,7 @@ class SongController extends Controller
 
     /**
      * 曲編集画面の表示
+     * @param [type] $id
      */
     public function edit($id)
     {
@@ -65,6 +70,8 @@ class SongController extends Controller
 
     /**
      * 曲のアップデート
+     * @param Request $request
+     * @param [type] $id
      */
     public function update(Request $request, $id)
     {
@@ -81,6 +88,7 @@ class SongController extends Controller
 
     /**
      * 曲の削除
+     * @param [type] $id
      */
     public function destroy($id)
     {
@@ -123,7 +131,6 @@ class SongController extends Controller
      * プレイリストから曲を削除
      *
      * @param Request $request
-     * @param [type] $id
      * @return void
      */
     public function remove_song(Request $request)
