@@ -12,18 +12,18 @@
         <div class="col-md-3"></div>
         <div class="col-md-6">
             <div class="card">
-                <div class="card-body table-responsive p-0">
+                <div class="card-body table-responsive p-0 bg-secondary">
                     <table class="table table-hover text-nowrap">
                         <thead>
                             <tbody>
                                 @foreach($playlists as $playlist)
                                     <tr>
-                                        <td><a href="{{ route('playlist.show', ['id' => $playlist->id]) }}">{{ $playlist->name }}</a></td>
+                                        <td class="column-list"><a href="{{ route('playlist.show', ['id' => $playlist->id]) }}">{{ $playlist->name }}</a></td>
                                         <td>
                                             <div class="text-right">  
                                                 <form id="delete_{{ $playlist->id }}" action="{{ route('playlist.destroy', ['id' => $playlist->id]) }}" method="POST">
                                                     @csrf
-                                                        <a href="#" data-id="{{ $playlist->id }}" onclick="deletePost(this)" class="btn btn-outline-danger btn-sm">削除</a>
+                                                        <a href="#" data-id="{{ $playlist->id }}" onclick="deletePost(this)" class="btn btn-danger btn-sm">ー</a>
                                                 </form>
                                             </div>  
                                         </td>

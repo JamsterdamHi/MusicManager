@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header d-flex flex-row">
+                <div class="card-header d-flex flex-row bg-secondary">
                     <div class="card-tools">
                         <div class="text-right">
                             <a class="btn btn-secondary btn-sm" href="{{ route('home') }}">戻る</a>
@@ -23,7 +23,7 @@
 
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap table-sm">
-                        <thead>
+                        <thead class="table-secondary">
                             <tr>
                                 <th>コメント</th>
                                 <th>ムード</th>

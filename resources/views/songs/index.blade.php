@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header d-flex flex-row">
+                <div class="card-header d-flex flex-row bg-secondary">
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <div class="dropdown">
@@ -75,10 +75,10 @@
                         <thead class="table-secondary">
                             <tr>
                                 <th></th>
-                                <th>@sortablelink('mood_id', 'ムード')</th>
-                                <th>@sortablelink('genre_id', 'ジャンル')</th>                    
-                                <th>@sortablelink('name', '曲名')</th>
-                                <th>@sortablelink('artist_name', 'アーティスト名')</th>
+                                <th class="column-sort">@sortablelink('mood_id', 'ムード')</th>
+                                <th class="column-sort">@sortablelink('genre_id', 'ジャンル')</th>                    
+                                <th class="column-sort">@sortablelink('name', '曲名')</th>
+                                <th class="column-sort">@sortablelink('artist_name', 'アーティスト名')</th>
                                 <th>試聴</th>
                                 <th></th>
                             </tr>
