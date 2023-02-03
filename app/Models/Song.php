@@ -8,10 +8,13 @@ use App\Models\Playlist;
 use App\Models\Genre;
 use App\Models\Mood;
 use App\Models\User;
+use Kyslik\ColumnSortable\Sortable;
 
 class Song extends Model
 {
     use HasFactory;
+
+    use Sortable;
 
     public function playlists()
     {
@@ -40,6 +43,13 @@ class Song extends Model
         'genre_id',
         'mood_id',
         'user_id',
+    ];
+
+    public $sortable = [
+        'name',
+        'artist_name',
+        'genre_id',
+        'mood_id'
     ];
 
 }

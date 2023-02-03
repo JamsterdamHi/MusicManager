@@ -30,27 +30,30 @@ eval("//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset
 /******/ 	
 /******/ })()
 ;
-
 // -- ドラッグ＆ドロップ --
 $(function () {
     $("#sort").sortable({
         update: function () {
-            // $("#log").text($('#sort').sortable("toArray"));
-            var i = 1;
-            $(".inOrder").each(function () {
-                var inOrder = $(this).val(i);
-                i++;
+            var inOrder = [];
+            var song_ids = [];
+            var playlist_id = 0;
+            $(".inOrder").each(function (i,element) {
+                // var inOrder = v.val();
+                inOrder.push(element.value);
+                playlist_id = $(this).data('playlist-id');
+                song_ids.push($(this).data('song-id'));
             });
+            console.log(inOrder);
 
         // -- 並び替えしたseqデータをajax通信 --
             $.ajax({
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 type: "post", //HTTP通信の種類
-                url:"{{ route('playlist.replace') }}", //通信したいURL
+                url:"/playlist/"+playlist_id+"/replace", //通信したいURL
                 dataType: 'json',
                 data:{
-                    song_id : "{{ $song->id }}",
-                    seq : "#{{ $i+1 }}"
+                    song_ids : song_ids,
+                    seqs : inOrder
                 }
             })
             //通信が成功したとき
@@ -73,14 +76,3 @@ function deletePost(e){
         document.getElementById('delete_' + e.dataset.id).submit()
     }
 }
-
-// -- tablesorter --
-$(function() {
-    $('#sorter').tablesorter({
-        headers: {
-            0: {sorter:false},
-            5: {sorter:false},
-            6: {sorter:false}
-        }
-    });
-});

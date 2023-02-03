@@ -19,10 +19,11 @@ class SongController extends Controller
     {
         // 曲一覧取得
         $songs = Song::orderBy('name')->get();
+        $songs = Song::sortable()->get();
         // ドロップダウン表示
         $playlists = Playlist::all();
 
-        return view('songs.index', compact('songs', 'playlists'));
+        return view('songs.index', compact('songs', 'playlists'))->with('songs',$songs);
     }
 
     /**
@@ -103,8 +104,6 @@ class SongController extends Controller
             // 現PlaylistSongテーブルのseqの最大値
             $maxSeq = PlaylistSong::where('playlist_id', $request->playlist_id)->max('seq');
 
-            // song_id が同じ場合の条件式
-
             // PlaylistSongテーブルのseqに順番に数値を付与する処理
             foreach ($request->songs as $song_id) {
                 $playlistSong = PlaylistSong::where('playlist_id', $request->playlist_id)->where('song_id', $song_id)->first();
@@ -114,7 +113,7 @@ class SongController extends Controller
             }
 
         }else {
-            return redirect()->back();
+            return redirect()->back()->with('error', '登録できませんでした');
         }
 
         return redirect()->route('playlist.show',$request->playlist_id);

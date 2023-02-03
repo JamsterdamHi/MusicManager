@@ -71,14 +71,14 @@
                 </div>
 
                 <div class="card-body table-responsive p-0">
-                    <table id="sorter" class="table table-hover text-nowrap table-sm">
-                        <thead class="table-light">
+                    <table class="table table-hover text-nowrap table-sm">
+                        <thead class="table-secondary">
                             <tr>
                                 <th></th>
-                                <th>ムード</th>
-                                <th>ジャンル</th>                    
-                                <th>曲名</th>
-                                <th>アーティスト名</th>
+                                <th>@sortablelink('mood_id', 'ムード')</th>
+                                <th>@sortablelink('genre_id', 'ジャンル')</th>                    
+                                <th>@sortablelink('name', '曲名')</th>
+                                <th>@sortablelink('artist_name', 'アーティスト名')</th>
                                 <th>試聴</th>
                                 <th></th>
                             </tr>
@@ -124,7 +124,4 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- jQuery UI -->
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-    <!-- tablesorter -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.1/js/jquery.tablesorter.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.1/js/extras/jquery.metadata.min.js"></script>
 @stop

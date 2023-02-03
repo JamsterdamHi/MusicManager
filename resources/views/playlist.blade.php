@@ -39,7 +39,7 @@
                         <tbody id="sort">
                             @foreach ($songs as $i => $song)
                                 <tr id="{{ $i+1 }}">
-                                    <input type="hidden" class="inOrder" value="{{ $i+1 }}" name="inOrder{{ $i+1 }}">
+                                    <input type="hidden" class="inOrder" data-playlist-id="{{ $playlist->id }}" data-song-id="{{ $song->id }}" value="{{ $i+1 }}" name="inOrder{{ $i+1 }}">
                                     <td>
                                         <form method="POST" action="{{ route('playlist.write', ['id' => $playlist->id]) }}" onsubmit="return true;">
                                             @csrf
