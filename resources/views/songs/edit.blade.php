@@ -21,7 +21,7 @@
                 </div>
             @endif
 
-            <div class="card card-primary my-5">
+            <div class="card card-primary bg-light my-5">
                 <form method="POST" action="{{ route('songs.update', ['id' => $song->id]) }}">
                     @csrf
                     <div class="card-body">
