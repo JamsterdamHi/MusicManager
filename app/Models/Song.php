@@ -45,6 +45,18 @@ class Song extends Model
         'user_id',
     ];
 
+    public function scopeSearch($query, $search)
+    {
+        if($search !== null){
+            $searchConversion = mb_convert_kana($search, 's'); // 全角スペースを半角
+            $wordArraySearched = preg_split('/[\s,]+/', $searchConversion, -1, PREG_SPLIT_NO_EMPTY); // 空白で区切る
+            foreach( $wordArraySearched as $value){
+                $query->where('name', 'like', '%' .$value. '%');
+            }
+        }
+        return $query;
+    }
+
     public $sortable = [
         'name',
         'artist_name',

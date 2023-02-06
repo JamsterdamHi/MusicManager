@@ -16,10 +16,6 @@ use App\Http\Controllers\PlaylistController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');

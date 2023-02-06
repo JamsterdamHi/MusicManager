@@ -40,6 +40,12 @@
                                 </button>
                             </div>
                         </div>
+                        <div>
+                            <form method="GET" action="{{ route('songs.index') }}">
+                                <input type="text" name="search" placeholder="検索" value="@if (isset($search)) {{ $search }} @endif">
+                                <button type="submit" class="btn btn-primary btn-sm">検索</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
