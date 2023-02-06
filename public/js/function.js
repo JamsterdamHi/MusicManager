@@ -36,12 +36,12 @@ $(function () {
     $("#sort").sortable({
         update: function () {
             var inOrder = [];
-            var song_ids = [];
+            var playlist_song_ids = [];
             var playlist_id = 0;
             $(".inOrder").each(function (i,element) {
                 inOrder.push(element.value);
                 playlist_id = $(this).data('playlist-id');
-                song_ids.push($(this).data('song-id'));
+                playlist_song_ids.push($(this).data('playlist-song-id'));
             });
             console.log(inOrder);
 
@@ -52,7 +52,7 @@ $(function () {
                 url:"/playlist/"+playlist_id+"/replace", //通信したいURL
                 dataType: 'json',
                 data:{
-                    song_ids : song_ids,
+                    playlist_song_ids : playlist_song_ids,
                     seqs : inOrder
                 }
             })

@@ -38,10 +38,11 @@
                         <tbody id="sort">
                             @foreach ($songs as $i => $song)
                                 <tr id="{{ $i+1 }}">
-                                    <input type="hidden" class="inOrder" data-playlist-id="{{ $playlist->id }}" data-song-id="{{ $song->id }}" value="{{ $i+1 }}" name="inOrder{{ $i+1 }}">
+                                    <input type="hidden" class="inOrder" data-playlist-id="{{ $playlist->id }}" data-playlist-song-id="{{ $song->pivot->id }}" value="{{ $i+1 }}" name="inOrder{{ $i+1 }}">
                                     <td>
-                                        <form method="POST" action="{{ route('playlist.write', ['id' => $playlist->id]) }}" onsubmit="return true;">
+                                        <form method="POST" action="{{ route('playlist.write', ['id' => $playlist->id, 'song_id' => $song->id]) }}" onsubmit="return true;">
                                             @csrf
+                                            <input type="hidden" name="playlist_song_id" value="{{ $song->pivot->id }}">
                                             <input type="hidden" name="song_id" value="{{ $song->id }}">
                                             <input class="appearance-none border rounded px-3 text-gray-700 input-sm" type="text" name="note" class="form-control" id="note" value="{{ $song->pivot->note }}" placeholder="コメント入力"> 
                                         </form>
@@ -52,8 +53,9 @@
                                     <td>{{ $song->artist_name }}</td>
                                     <td><a href="{{ $song->youtube_url }}">{{ $song->youtube_url }}</a></td>
                                     <td>
-                                        <form method="POST" action="{{ route('songs.remove_song' ) }}">
+                                        <form method="POST" action="{{ route('songs.remove_song', ['id' => $playlist->id, 'song_id' => $song->id]) }}">
                                                 @csrf
+                                                <input type="hidden" name="playlist_song_id" value="{{ $song->pivot->id }}">
                                                 <input type="hidden" name="song_id" value="{{ $song->id }}">
                                                 <input type="hidden" name="playlist_id" value="{{ $playlist->id }}">
                                                 <button type="submit" onclick="deletePost(this)" class="btn btn-outline-danger btn-sm rounded-circle">ー</button>

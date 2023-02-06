@@ -18,8 +18,7 @@ class SongController extends Controller
     public function index()
     {
         // 曲一覧取得
-        $songs = Song::orderBy('name')->get();
-        $songs = Song::sortable()->get();
+        $songs = Song::sortable('name')->get();
         // ドロップダウン表示
         $playlists = Playlist::all();
 
@@ -133,10 +132,12 @@ class SongController extends Controller
      * @param Request $request
      * @return void
      */
-    public function remove_song(Request $request)
+    public function remove_song(Request $request, $id, $song_id) //blade（→web.php）から３つ要素を受け取る
     {
-        $playlist = Playlist::find($request->playlist_id);
-        $playlist->songs()->detach($request->id);
+        $playlistSong = PlaylistSong::find($request->playlist_song_id);
+        
+        // PlaylistSongモデルのデータを削除
+        $playlistSong->delete();
 
         return redirect()->route('playlist.show',$request->playlist_id);
     }

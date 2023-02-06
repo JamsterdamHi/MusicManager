@@ -82,8 +82,8 @@ class PlaylistController extends Controller
     public function replace(Request $request, $id)
     {
         $playlist = Playlist::find($id);
-        foreach ($request->song_ids as $i=> $song_id) {
-            $playlistSong = PlaylistSong::where('playlist_id', $id)->where('song_id', $song_id)->first();
+        foreach ($request->playlist_song_ids as $i=> $playlist_song_id) {
+            $playlistSong = PlaylistSong::find($playlist_song_id);
             // seqを i+1 の順番で上書き
             $playlistSong->seq=$i+1;
             $playlistSong->save();
@@ -138,10 +138,12 @@ class PlaylistController extends Controller
     /**
      * 中間テーブルへの「コメント」保存
      */
-    public function write(Request $request, $id)
+    public function write(Request $request, $id, $song_id)
     {
-        $playlistSong = PlaylistSong::where('playlist_id', $id)->where('song_id', $request->song_id)->first();
+        $playlistSong = PlaylistSong::find($request->playlist_song_id);
+
         $playlistSong->note = $request->note;
+
         $playlistSong->update();
 
         return redirect()->route('playlist.show',[$id]);

@@ -28,7 +28,7 @@ Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::prefix('playlist')->middleware(['auth'])->group(function(){
     Route::get('/{id}', [PlaylistController::class, 'show'])->name('playlist.show');
     Route::post('/{id}/replace', [PlaylistController::class, 'replace'])->name('playlist.replace');
-    Route::post('/{id}/write', [PlaylistController::class, 'write'])->name('playlist.write');
+    Route::post('/{id}/write/{song_id}', [PlaylistController::class, 'write'])->name('playlist.write');
     Route::post('/store', [PlaylistController::class, 'store'])->name('playlist.store');
     Route::post('/{id}', [PlaylistController::class, 'update'])->name('playlist.update');
     Route::post('/{id}/destroy', [playlistController::class,'destroy'])->name('playlist.destroy');
@@ -39,7 +39,7 @@ Route::prefix('songs')->middleware(['auth'])->name('songs.')->group(function () 
     Route::get('/create', [SongController::class, 'create'])->name('create');
     Route::post('/store', [SongController::class, 'store'])->name('store');
     Route::post('/add_songs', [SongController::class, 'add_songs'])->name('add_songs');
-    Route::post('/remove_song', [SongController::class, 'remove_song'])->name('remove_song');
+    Route::post('/remove_song/{id}/{song_id}', [SongController::class, 'remove_song'])->name('remove_song');
 
     Route::get('/{id}/edit', [SongController::class, 'edit'])->name('edit');
     Route::post('/{id}', [SongController::class, 'update'])->name('update');
