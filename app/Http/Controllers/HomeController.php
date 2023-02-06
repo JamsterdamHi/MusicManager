@@ -33,9 +33,6 @@ class HomeController extends Controller
         // プレイリスト一覧表示
         $playlists = Playlist::where('user_id', $id)->orderBy('created_at')->paginate(10);
 
-        // dd($playlists);
-
         return view('home', compact('playlists'));
     }
-
 }

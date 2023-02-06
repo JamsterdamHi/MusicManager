@@ -51,11 +51,13 @@ class Song extends Model
             $searchConversion = mb_convert_kana($search, 's'); // 全角スペースを半角
             $wordArraySearched = preg_split('/[\s,]+/', $searchConversion, -1, PREG_SPLIT_NO_EMPTY); // 空白で区切る
             foreach( $wordArraySearched as $value){
-                $query->where('name', 'like', '%' .$value. '%');
+                $query->where('name', 'like', '%' .$value. '%')->orWhere('artist_name', 'like', '%' .$value. '%');
             }
         }
+        // dd($search);
         return $query;
     }
+
 
     public $sortable = [
         'name',

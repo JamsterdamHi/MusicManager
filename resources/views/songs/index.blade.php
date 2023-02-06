@@ -21,9 +21,10 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header d-flex flex-row bg-secondary">
+                <div class="card-header d-flex justify-content-between bg-secondary">
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
+                            <!-- ドロップダウン：プレイリストへ追加 -->
                             <div class="dropdown">
                                 <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     プレイリストへ追加
@@ -34,17 +35,20 @@
                                         @endforeach
                                     </div>
                             </div>
-                            <div class="input-group-append">
+                            <!-- Modalボタン -->
+                            <div class="input-group-append ml-1">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                     ＋
                                 </button>
                             </div>
-                        </div>
-                        <div>
-                            <form method="GET" action="{{ route('songs.index') }}">
-                                <input type="text" name="search" placeholder="検索" value="@if (isset($search)) {{ $search }} @endif">
-                                <button type="submit" class="btn btn-primary btn-sm">検索</button>
-                            </form>
+                        
+                        <!-- 検索 -->
+                            <div class="ml-5 pl-5">
+                                <form method="GET" action="{{ route('songs.index') }}">
+                                    <input class="bg-light border-0 form-control-sm" type="text" name="search" placeholder="キーワード" value="@if (isset($search)) {{ $search }} @endif">
+                                    <button type="submit" class="btn btn-primary btn-sm border-0 bg-secondary">検索</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -80,6 +84,7 @@
                     <table class="table table-hover text-nowrap table-sm">
                         <thead class="table-secondary">
                             <tr>
+                                <!-- sortable -->
                                 <th></th>
                                 <th class="column-sort">@sortablelink('mood_id', 'ムード')</th>
                                 <th class="column-sort">@sortablelink('genre_id', 'ジャンル')</th>                    
@@ -89,24 +94,24 @@
                                 <th></th>
                             </tr>
                         </thead>
-
+                        <!-- 曲一覧表示 -->
                         <tbody class="table table-striped">
+                            <!-- チェックボックスで選択した曲をプレイリストへ追加 -->
                             <form id="add_songs" action="{{ route('songs.add_songs') }}" method="POST">
                                             @csrf
-
                             @foreach ($songs as $i => $song)
                                 <tr>
                                     <td>
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" name="songs[]" value="{{ $song->id }}">
                                         </div>
-
                                     </td>
                                     <td>{{ $song->mood->name }}</td>
                                     <td>{{ $song->genre->name }}</td>
                                     <td>{{ $song->name }}</td>
                                     <td>{{ $song->artist_name }}</td>
                                     <td><a href="{{ $song->youtube_url }}">{{ $song->youtube_url }}</a></td>
+                                    <!-- 曲の編集 -->
                                     <td><a href="{{ route('songs.edit', ['id' => $song->id]) }}" class="btn btn-primary btn-sm">編集</a></td>
                                 </tr>
                             @endforeach

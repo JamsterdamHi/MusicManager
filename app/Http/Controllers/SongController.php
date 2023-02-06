@@ -18,18 +18,15 @@ class SongController extends Controller
     public function index(Request $request)
     {
         // 曲一覧取得
-        $songs = Song::sortable('name')->get();
+        
         // ドロップダウン表示
         $playlists = Playlist::where('user_id', Auth::id())->orderBy('created_at')->get();
         // 検索機能
         $search = $request->search;
         $query = Song::search($search);
-        // $songs = $query->sortable('name')->get();
+        $songs = $query->sortable('name')->get();
 
-        return view('songs.index', compact('songs', 'playlists'))->with([
-            'songs' => $songs,
-            'search' => $search
-        ]);
+        return view('songs.index', compact('songs', 'playlists'));
     }
 
     /**

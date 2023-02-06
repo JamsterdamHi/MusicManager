@@ -115,7 +115,6 @@ class PlaylistController extends Controller
     {
         $playlist = Playlist::find($id);
         $playlist->name = $request->name;
-
         $playlist->save();
 
         return redirect()->route('playlist.show',[$id]);
@@ -141,9 +140,7 @@ class PlaylistController extends Controller
     public function write(Request $request, $id, $song_id)
     {
         $playlistSong = PlaylistSong::find($request->playlist_song_id);
-
         $playlistSong->note = $request->note;
-
         $playlistSong->update();
 
         return redirect()->route('playlist.show',[$id]);
