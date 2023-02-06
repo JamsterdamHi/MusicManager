@@ -20,7 +20,7 @@ class SongController extends Controller
         // 曲一覧取得
         $songs = Song::sortable('name')->get();
         // ドロップダウン表示
-        $playlists = Playlist::all();
+        $playlists = Playlist::where('user_id', Auth::id())->orderBy('created_at')->get();
         // 検索機能
         $search = $request->search;
         $query = Song::search($search);

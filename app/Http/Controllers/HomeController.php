@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Song;
 use App\Models\Playlist;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -25,7 +27,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $playlists = Playlist::orderBy('created_at')->paginate(10);
+        // 認証済みユーザーid取得
+        $id = Auth::id();
+        $user = DB::table('users')->find($id);
+        // プレイリスト一覧表示
+        $playlists = Playlist::where('user_id', $id)->orderBy('created_at')->paginate(10);
+
+        // dd($playlists);
+
         return view('home', compact('playlists'));
     }
 

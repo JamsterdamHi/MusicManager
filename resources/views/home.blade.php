@@ -12,6 +12,11 @@
         <div class="col-md-3"></div>
         <div class="col-md-6">
             <div class="card">
+                <div>
+                    @if($playlists->isEmpty())
+                        <p class="text-center my-5 text-secondary">曲一覧 画面よりプレイリストを作成してください。</p>
+                    @endif
+                </div>
                 <div class="card-body table-responsive p-0 bg-secondary">
                     <table class="table table-hover text-nowrap">
                         <thead>
@@ -33,8 +38,8 @@
                         </thead>
                     </table>
                 </div>
+                {{ $playlists->links('pagination::bootstrap-4') }}
             </div>
-            {{ $playlists->links('pagination::bootstrap-4') }}
         </div>
     </div>
 @stop
