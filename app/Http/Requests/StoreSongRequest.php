@@ -17,14 +17,14 @@ class StoreSongRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * バリデーション ルール
      *
      * @return array
      */
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'max:50', 'unique:songs'],
+            'name' => ['required', 'string', 'max:50'],
             'artist_name' => ['required', 'string', 'max:50'],
             'youtube_url' => ['nullable', 'url', 'max:191'],
         ];

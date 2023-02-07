@@ -18,7 +18,7 @@ class AuthServiceProvider extends ServiceProvider
     ];
 
     /**
-     * Register any authentication / authorization services.
+     * すべてのPolicyのアクセスについてadministratorの許可を与える
      *
      * @return void
      */

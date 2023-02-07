@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use App\Models\Song;
 use App\Models\Playlist;
 use App\Models\PlaylistSong;
@@ -13,14 +14,20 @@ use App\Http\Requests\StoreSongRequest;
 class SongController extends Controller
 {
     /**
-     * 曲一覧
+     * 曲一覧の表示
      */
     public function index(Request $request)
     {
-        // 曲一覧取得
-        
         // ドロップダウン表示
-        $playlists = Playlist::where('user_id', Auth::id())->orderBy('created_at')->get();
+        if(Gate::allows('isAdmin'))
+        {
+            // 管理者は全てのプレイリストを表示
+            $playlists = Playlist::orderBy('created_at')->get();
+        }else{
+            // 認証済みユーザーid取得
+            $playlists = Playlist::where('user_id', Auth::id())->orderBy('created_at')->get();
+        }
+
         // 検索機能
         $search = $request->search;
         $query = Song::search($search);
@@ -76,7 +83,7 @@ class SongController extends Controller
      * @param Request $request
      * @param [type] $id
      */
-    public function update(Request $request, $id)
+    public function update(StoreSongRequest $request, $id)
     {
         $song = Song::find($id);
         // アクセス制限（曲を登録したユーザーだけが編集できるように）

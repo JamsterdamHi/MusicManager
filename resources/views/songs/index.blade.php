@@ -41,7 +41,6 @@
                                     ＋
                                 </button>
                             </div>
-                        
                         <!-- 検索 -->
                             <div class="ml-5 pl-5">
                                 <form method="GET" action="{{ route('songs.index') }}">
@@ -72,7 +71,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">閉じる</button>
                                     <button type="submit" class="btn btn-primary">登録</button>
                                 </div>
                             </form>
@@ -98,7 +97,7 @@
                         <tbody class="table table-striped">
                             <!-- チェックボックスで選択した曲をプレイリストへ追加 -->
                             <form id="add_songs" action="{{ route('songs.add_songs') }}" method="POST">
-                                            @csrf
+                            @csrf
                             @foreach ($songs as $i => $song)
                                 <tr>
                                     <td>
@@ -114,8 +113,8 @@
                                     <!-- 曲の編集 -->
                                     <td>
                                         @if(Auth::user()->id === $song->user_id)
-                                        @method('update')
-                                        <a href="{{ route('songs.edit', ['id' => $song->id]) }}" class="btn btn-primary btn-sm">編集</a>
+                                        @csrf
+                                            <a href="{{ route('songs.edit', ['id' => $song->id]) }}" class="btn btn-primary btn-sm">編集</a>
                                         @endif
                                     </td>
                                 </tr>

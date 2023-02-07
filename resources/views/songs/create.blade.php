@@ -8,23 +8,14 @@
 
 @stop
 
-
 @section('content')
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
 
+            <!-- バリデーション アラート -->
             @if ($errors->any())
-                <div class="alert alert-danger">
+                <div class="alert text-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -34,15 +25,15 @@
             @endif
 
             <div class="card card-primary bg-light my-5">
-                <form method="POST" action="{{ route('songs.store') }}">
+                <div class="card-body">
+                    <p class="h4 text-center">新しい曲の登録</p>
+                    <div class="text-right">
+                        <a class="btn btn-outline-secondary btn-sm" href="{{ route('songs.index') }}">戻る</a>
+                    </div>
+
+                    <!-- 曲の登録フォーム -->
+                    <form method="POST" action="{{ route('songs.store') }}">
                     @csrf
-                    <div class="card-body">
-                        <p class="h4 text-center">新しい曲の登録</p>
-                        <div class="text-right">
-                            <a class="btn btn-secondary btn-sm" href="{{ route('songs.index') }}">戻る</a>
-                        </div>
-
-
                         <div class="row mb-3">
                             <div class="col">
                                 <label for="custom-select-1">ムード</label>
@@ -91,12 +82,13 @@
                             <label for="demo">試聴用URL</label>
                             <input type="text" class="form-control" id="youtube_url" name="youtube_url" value="{{ old('youtube_url') }}" placeholder="URL">
                         </div>
-                    </div>
+                </div>
+                        <!-- card-footer -->
+                        <div class="card-footer d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary w-25">登録</button>
+                        </div>
+                    </form>
 
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">登録</button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

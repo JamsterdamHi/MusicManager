@@ -11,8 +11,10 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
+
+            <!-- バリデーション アラート -->
             @if ($errors->any())
-                <div class="alert alert-danger">
+                <div class="alert text-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -22,15 +24,15 @@
             @endif
 
             <div class="card card-primary bg-light my-5">
-                <form method="POST" action="{{ route('songs.update', ['id' => $song->id]) }}">
+                <div class="card-body">
+                    <p class="h4 text-center">曲の編集</p>
+                    <div class="text-right">
+                        <a class="btn btn-outline-secondary btn-sm" href="{{ route('songs.index') }}">戻る</a>
+                    </div>
+
+                    <!-- 曲の編集フォーム -->
+                    <form method="POST" action="{{ route('songs.update', ['id' => $song->id]) }}">
                     @csrf
-                    <div class="card-body">
-                        <p class="h4 text-center">曲の編集</p>
-                        <div class="text-right">
-                            <a class="btn btn-secondary btn-sm" href="{{ route('songs.index') }}">戻る</a>
-                        </div>
-
-
                         <div class="row mb-3">
                             <div class="col">
                                 <label for="custom-select-1">ムード</label>
@@ -79,20 +81,19 @@
                             <label for="demo">試聴</label>
                             <input type="text" class="form-control" id="youtube_url" name="youtube_url" value="{{ $song->youtube_url }}">
                         </div>
-                    </div>
+                </div>
 
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">更新する</button>
-                    </div>
+                    <!-- card-footer -->
+                    <div class="card-footer row m-0">
+                        <!-- 曲の更新 -->
+                        <button type="submit" class="btn btn-primary w-25">更新</button>
                 </form>
-
-                <form id="delete_{{ $song->id }}" action="{{ route('songs.destroy', ['id' => $song->id]) }}" method="POST">
-                    @csrf
-                    <div class="card-footer">
-                        <a href="#" data-id="{{ $song->id }}" onclick="deletePost(this)" class="btn btn-danger">削除</a>
+                        <!-- 曲の削除フォーム -->
+                        <form id="delete_{{ $song->id }}" action="{{ route('songs.destroy', ['id' => $song->id]) }}" method="POST" class="col-9 text-right">
+                        @csrf
+                                <a href="#" data-id="{{ $song->id }}" onclick="deletePost(this)"  class="btn btn-outline-danger rounded-circle">ー</a>
+                        </form>
                     </div>
-                </form>
-
             </div>
         </div>
     </div>
