@@ -4,7 +4,7 @@
 
 @section('content_header')
     <p class="h1"><small class="text-muted">Song</small>LIBRARY</p>
-    <p class="h4">曲一覧</p>
+    <br>
 @stop
 
 @if ($errors->any())
@@ -112,7 +112,12 @@
                                     <td>{{ $song->artist_name }}</td>
                                     <td><a href="{{ $song->youtube_url }}">{{ $song->youtube_url }}</a></td>
                                     <!-- 曲の編集 -->
-                                    <td><a href="{{ route('songs.edit', ['id' => $song->id]) }}" class="btn btn-primary btn-sm">編集</a></td>
+                                    <td>
+                                        @if(Auth::user()->id === $song->user_id)
+                                        @method('update')
+                                        <a href="{{ route('songs.edit', ['id' => $song->id]) }}" class="btn btn-primary btn-sm">編集</a>
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                             </form>

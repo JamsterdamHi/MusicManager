@@ -79,6 +79,8 @@ class SongController extends Controller
     public function update(Request $request, $id)
     {
         $song = Song::find($id);
+        // アクセス制限（曲を登録したユーザーだけが編集できるように）
+        $this->authorize('update',$song);
         $song->name = $request->name;
         $song->artist_name = $request->artist_name;
         $song->youtube_url = $request->youtube_url;
@@ -96,6 +98,8 @@ class SongController extends Controller
     public function destroy($id)
     {
         $song = Song::find($id);
+        // アクセス制限（曲を登録したユーザーだけが削除できるように）
+        $this->authorize('delete',$song);
         $song->delete();
 
         return redirect('/songs');

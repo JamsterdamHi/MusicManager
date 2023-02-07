@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', '商品一覧')
+@section('title', "$playlist->name")
 
 @section('content_header')
     <form method="POST" action="{{ route('playlist.update', ['id' => $playlist->id]) }}" onsubmit="return true;">

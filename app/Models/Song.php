@@ -45,6 +45,13 @@ class Song extends Model
         'user_id',
     ];
 
+    /**
+     * 検索機能 ローカルスコープ
+     *
+     * @param [type] $query
+     * @param [type] $search
+     * @return void
+     */
     public function scopeSearch($query, $search)
     {
         if($search !== null){

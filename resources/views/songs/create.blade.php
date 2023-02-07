@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', '商品登録')
+@section('title', 'SongADD')
 
 @section('content_header')
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}" class="href">
