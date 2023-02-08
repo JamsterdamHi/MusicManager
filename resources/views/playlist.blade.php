@@ -13,11 +13,9 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header d-flex flex-row bg-secondary">
+                <div class="card-head bg-secondary">
                     <div class="card-tools">
-                        <div class="text-right">
-                            <a class="btn btn-secondary btn-sm" href="{{ route('home') }}">戻る</a>
-                        </div>
+                        <a class="btn btn-secondary btn-sm" href="{{ route('home') }}">戻る</a>
                     </div>
                 </div>
 

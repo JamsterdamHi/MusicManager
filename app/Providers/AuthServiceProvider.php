@@ -32,5 +32,10 @@ class AuthServiceProvider extends ServiceProvider
                 return true;
             }
         });
+        // アクセス制限を行う際に利用する任意の名前を付して管理者を定義
+        Gate::define('isAdmin',function($user)
+        {
+            return $user->role == 'administrator';
+        });
     }
 }
