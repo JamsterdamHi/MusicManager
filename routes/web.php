@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PlaylistController;
+use App\Http\Controllers\YoutubeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,9 +41,10 @@ Route::prefix('songs')->middleware(['auth'])->name('songs.')->group(function () 
     Route::get('/{id}/edit', [SongController::class, 'edit'])->name('edit');
     Route::post('/{id}', [SongController::class, 'update'])->name('update');
     Route::post('/{id}/destroy', [SongController::class,'destroy'])->name('destroy');
-
-
+    
     // need to login
     // Route::get('/add', [App\Http\Controllers\ItemController::class, 'add']);
     // Route::post('/add', [App\Http\Controllers\ItemController::class, 'add']);
 });
+
+Route::get('youtube', [YoutubeController::class, 'index']);
