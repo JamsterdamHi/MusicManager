@@ -43,7 +43,7 @@
                                 <option value="3" {{ old('mood_id')==3 ? 'selected' : '' }}>バラード</option>
                                 <option value="4" {{ old('mood_id')==4 ? 'selected' : '' }}>和風</option>
                                 <option value="5" {{ old('mood_id')==5 ? 'selected' : '' }}>神聖な</option>
-                                <option value="6" {{ old('mood_id')==6 ? 'selected' : '' }}>ダンスビート</option>
+                                <option value="6" {{ old('mood_id')==6 ? 'selected' : '' }}>悲しい</option>
                                 <option value="7" {{ old('mood_id')==7 ? 'selected' : '' }}>激しい</option>
                                 <option value="8" {{ old('mood_id')==8 ? 'selected' : '' }}>ドラマティック</option>
                                 <option value="9" {{ old('mood_id')==9 ? 'selected' : '' }}>ゲーム余興</option>
