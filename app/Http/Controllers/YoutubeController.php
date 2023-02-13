@@ -16,14 +16,12 @@ class YoutubeController extends Controller
 
             $videosList = $t->videosList($result->id->videoId);
             $embed = "https://www.youtube.com/embed/" . $videosList[0]['id'];
-            $array[] = array($embed, $videosList[0]['snippet'],$videosList[0]['statistics']);
-        
-        
+            $array[] = array($embed, $videosList[0]['snippet'], $videosList[0]['statistics']);
         }
 
-$youtube = $array;
+        $youtube = $array;
 
-// \Log::channel('daily')->info($youtube);
+        // \Log::channel('daily')->info($youtube);
 
         return view('songs.create', compact('youtube'));
     }
