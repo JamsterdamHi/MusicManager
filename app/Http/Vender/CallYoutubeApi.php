@@ -4,10 +4,11 @@ namespace App\Http\Vender;
 
 use Google_Client;
 use Google_Service_YouTube;
+use PSpell\Config;
 
 class CallYoutubeApi
 {
-    private $key = 'AIzaSyCQlo4FSgWUb8M6Za08PFvakaIIPNixVxs';
+    private $key = config('youtube.youtube-api');
     private $client;
     private $youtube;
 

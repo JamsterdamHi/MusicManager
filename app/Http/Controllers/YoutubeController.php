@@ -10,19 +10,22 @@ class YoutubeController extends Controller
     public function index(Request $request)
     {
         $t = new CallYoutubeApi();
-        $searchList = $t->searchList("検索したいワード");
+        $searchList = $t->searchList("beatles");
+        dd($searchList);
+
         foreach ($searchList as $result) {
             // \Log::channel('daily')->info((array)$result);
 
             $videosList = $t->videosList($result->id->videoId);
+            dd($videosList);
+
             $embed = "https://www.youtube.com/embed/" . $videosList[0]['id'];
-            $array[] = array($embed, $videosList[0]['snippet'], $videosList[0]['statistics']);
+            $youtube[] = array($embed, $videosList[0]['snippet'], $videosList[0]['statistics']);
         }
 
-        $youtube = $array;
-
+// dd($array);
         // \Log::channel('daily')->info($youtube);
 
-        return view('songs.create', compact('youtube'));
+        return view('youtube', compact('youtube'));
     }
 }

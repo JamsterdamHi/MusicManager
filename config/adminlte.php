@@ -234,13 +234,13 @@ return [
         [
             'text' => '曲一覧',
             'url'  => 'songs',
-            'icon' => 'fas fa-play-circle',
+            'icon' => 'fa-solid fa-list',
         ],
 
         [
             'text' => '曲を追加',
             'url'  => 'songs/create',
-            'icon' => 'fas fa-play-circle',
+            'icon' => 'fa fa-plus-circle',
         ],
 
 
