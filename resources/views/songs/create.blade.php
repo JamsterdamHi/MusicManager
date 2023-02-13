@@ -81,6 +81,7 @@
                         <div class="form-group">
                             <label for="demo">試聴用URL</label>
                             <input type="text" class="form-control" id="youtube_url" name="youtube_url" value="{{ old('youtube_url') }}" placeholder="URL">
+                            <iframe id="ytplayer" type="text/html" width="320" height="180" src={{ $youtube ?? ''[0][0] }} frameborder="0"></iframe>
                         </div>
                 </div>
                         <!-- card-footer -->
