@@ -43,17 +43,17 @@ class PlaylistController extends Controller
         // バリデーションルールは必須かつユニーク（重複がない）
         $validatedData = $request->validate([
             'name' => ['required', 'unique:playlists', 'max:50'],
-        ],[
-            'name.required'=>'プレイリスト名は必須です',
-            'name.unique'=>'すでに登録されているプレイリスト名です',
-            'name.max'=>'プレイリスト名が長過ぎです'
+        ], [
+            'name.required' => 'プレイリスト名は必須です',
+            'name.unique' => 'すでに登録されているプレイリスト名です',
+            'name.max' => 'プレイリスト名が長過ぎです'
         ]);
         // ②バリデーションが通ればplaylistテーブルに登録        
         Playlist::create([
             'name' => $request->name,
             'user_id' => Auth::user()->id,
         ]);
-                
+
         return redirect('home');
     }
 
@@ -82,16 +82,15 @@ class PlaylistController extends Controller
     public function replace(Request $request, $id)
     {
         $playlist = Playlist::find($id);
-        foreach ($request->playlist_song_ids as $i=> $playlist_song_id) {
+        foreach ($request->playlist_song_ids as $i => $playlist_song_id) {
             $playlistSong = PlaylistSong::find($playlist_song_id);
             // seqを i+1 の順番で上書き
-            $playlistSong->seq=$i+1;
+            $playlistSong->seq = $i + 1;
             $playlistSong->save();
         }
         // ajax通信はredirectは不要。代わりにとりあえずの処理。
         echo json_encode([$request->seqs, $request->song_ids]);
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -117,7 +116,7 @@ class PlaylistController extends Controller
         $playlist->name = $request->name;
         $playlist->save();
 
-        return redirect()->route('playlist.show',[$id]);
+        return redirect()->route('playlist.show', [$id]);
     }
 
     /**
@@ -143,7 +142,6 @@ class PlaylistController extends Controller
         $playlistSong->note = $request->note;
         $playlistSong->update();
 
-        return redirect()->route('playlist.show',[$id]);
+        return redirect()->route('playlist.show', [$id]);
     }
 }
-

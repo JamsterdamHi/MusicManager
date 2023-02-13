@@ -19,11 +19,10 @@ class SongController extends Controller
     public function index(Request $request)
     {
         // ドロップダウン表示
-        if(Gate::allows('isAdmin'))
-        {
+        if (Gate::allows('isAdmin')) {
             // 管理者は全てのプレイリストを表示
             $playlists = Playlist::orderBy('created_at')->get();
-        }else{
+        } else {
             // 認証済みユーザーid取得
             $playlists = Playlist::where('user_id', Auth::id())->orderBy('created_at')->get();
         }
@@ -87,7 +86,7 @@ class SongController extends Controller
     {
         $song = Song::find($id);
         // アクセス制限（曲を登録したユーザーだけが編集できるように）
-        $this->authorize('update',$song);
+        $this->authorize('update', $song);
         $song->name = $request->name;
         $song->artist_name = $request->artist_name;
         $song->youtube_url = $request->youtube_url;
@@ -106,7 +105,7 @@ class SongController extends Controller
     {
         $song = Song::find($id);
         // アクセス制限（曲を登録したユーザーだけが削除できるように）
-        $this->authorize('delete',$song);
+        $this->authorize('delete', $song);
         $song->delete();
 
         return redirect('/songs');
@@ -122,23 +121,22 @@ class SongController extends Controller
         $playlist = Playlist::find($request->playlist_id);
         if ($request->filled('songs')) {
             $playlist->songs()->attach($request->songs);
-            
+
             // 現PlaylistSongテーブルのseqの最大値
             $maxSeq = PlaylistSong::where('playlist_id', $request->playlist_id)->max('seq');
 
             // PlaylistSongテーブルのseqに順番に数値を付与する処理
             foreach ($request->songs as $song_id) {
                 $playlistSong = PlaylistSong::where('playlist_id', $request->playlist_id)->where('song_id', $song_id)->latest("id")->first();
-                $playlistSong->seq=$maxSeq+1;
+                $playlistSong->seq = $maxSeq + 1;
                 $playlistSong->update();
                 $maxSeq++;
             }
-
-        }else {
+        } else {
             return redirect()->back()->with('error', '登録できませんでした');
         }
 
-        return redirect()->route('playlist.show',$request->playlist_id);
+        return redirect()->route('playlist.show', $request->playlist_id);
     }
 
     /**
@@ -154,6 +152,6 @@ class SongController extends Controller
         // PlaylistSongモデルのデータを削除
         $playlistSong->delete();
 
-        return redirect()->route('playlist.show',$request->playlist_id);
+        return redirect()->route('playlist.show', $request->playlist_id);
     }
 }
