@@ -7,7 +7,7 @@ use Google_Service_YouTube;
 
 class CallYoutubeApi
 {
-    private $key = '';
+    private $key = 'AIzaSyCQlo4FSgWUb8M6Za08PFvakaIIPNixVxs';
     private $client;
     private $youtube;
 
