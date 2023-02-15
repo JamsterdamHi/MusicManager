@@ -81,4 +81,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- jQuery UI -->
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <!-- jQuery UI Touch Punch -->
+    <script src="jquery.ui.touch-punch.min.js"></script>
 @stop
