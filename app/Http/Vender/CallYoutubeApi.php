@@ -8,12 +8,14 @@ use PSpell\Config;
 
 class CallYoutubeApi
 {
-    private $key = config('youtube.youtube-api');
+    private $key;
     private $client;
     private $youtube;
 
     public function __construct()
     {
+        $this->key = config('youtube.youtube_api_key');
+
         $this->client = new Google_Client();
         $this->client->setDeveloperKey($this->key);
         $this->youtube = new Google_Service_YouTube($this->client);

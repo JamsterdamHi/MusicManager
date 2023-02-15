@@ -80,13 +80,7 @@
                             value="{{ old('artist_name') }}" placeholder="アーティスト名を入力">
                     </div>
 
-                    <div class="form-group">
-                        <label for="demo">試聴用URL</label>
-                        <input type="text" class="form-control" id="youtube_url" name="youtube_url"
-                            value="{{ old('youtube_url') }}" placeholder="URL">
-                        <iframe id="ytplayer" type="text/html" width="320" height="180" src={{ $youtube ?? '' [0][0] }}
-                            frameborder="0"></iframe>
-                    </div>
+                    <livewire:youtube-url-list /> 
             </div>
             <!-- card-footer -->
             <div class="card-footer d-flex justify-content-center">
@@ -100,7 +94,9 @@
 @stop
 
 @section('css')
+    @livewireStyles
 @stop
 
 @section('js')
+    @livewireScripts
 @stop

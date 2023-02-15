@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Livewire;
 
-use Illuminate\Http\Request;
+use Livewire\Component;
 use App\Http\Vender\CallYoutubeApi;
 
-class YoutubeController extends Controller
+class YoutubeUrlList extends Component
 {
-    public function index(Request $request)
-    {
+    public function getYoutubeUrl(){
+        // YOUTUBEのURLを取得
         $t = new CallYoutubeApi();
         $searchList = $t->searchList("The Be");
 
@@ -20,11 +20,14 @@ class YoutubeController extends Controller
 
             $url = "https://www.youtube.com/watch?v=" . $videosList[0]['id'];
             $youtube[] = array($url, $videosList[0]['snippet'], $videosList[0]['statistics']);
+
+            // dd($youtube);
+
         }
+    }
 
-// dd($array);
-        // \Log::channel('daily')->info($youtube);
-
-        return view('youtube', compact('youtube'));
+    public function render()
+    {
+        return view('livewire.youtube-url-list', compact('youtube'));
     }
 }
