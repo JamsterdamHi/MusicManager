@@ -68,7 +68,7 @@
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                                 @endif --}}
-                            </div>Ï
+                            </div>
                         </div>
                     </form>
                 </div>
