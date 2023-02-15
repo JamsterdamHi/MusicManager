@@ -24,31 +24,3 @@
 .column-list a{
   color: white;
 }
-
-.scroll {
-  background-color: #ffffff;
-  padding: 0 0 20px 0;
-  overflow-x: scroll;
-  -ms-overflow-style: none;
-  /* IE, Edge 対応 */
-  scrollbar-width: none;
-  /* Firefox 対応 */
-}
-.scroll::-webkit-scrollbar {
-  /* Chrome, Safari 対応 */
-  display: none;
-}
-.simplebar-scrollbar::before {
-  background: #ffffff;
-  border-radius: 0;
-  height: 5px !important;
-  margin-left: 2px;
-  margin-top: 3px;
-}
-.simplebar-scrollbar.simplebar-visible::before {
-  opacity: 1;
-}
-.simplebar-track {
-  background: #cbd2e0;
-  height: 15px !important;
-}
