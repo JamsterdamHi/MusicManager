@@ -16,7 +16,7 @@ class CreatePlaylistSongTable extends Migration
         Schema::create('playlist_song', function (Blueprint $table) {
             $table->id();
             $table->integer('seq')->nullable()->comment('曲順');
-            $table->string('note')->nullable()->comment('コメント');
+            $table->string('note', 50)->nullable()->comment('コメント');
             $table->foreignId('song_id')->constrained('songs')->onDelete('cascade')->comment('曲ID');
             $table->foreignId('playlist_id')->constrained('playlists')->onDelete('cascade')->comment('プレイリストID');
             $table->timestamps();

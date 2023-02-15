@@ -26,7 +26,7 @@
 
         <div class="card card-primary bg-light my-5">
             <div class="card-body">
-                <p class="h4 text-center">新しい曲の登録</p>
+                <p class="h4 text-center">新しい曲を追加</p>
                 <div class="text-right">
                     <a class="btn btn-outline-secondary btn-sm" href="{{ route('songs.index') }}">戻る</a>
                 </div>
