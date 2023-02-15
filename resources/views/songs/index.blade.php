@@ -7,20 +7,21 @@
 <br>
 @stop
 
-@if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
 
 @section('content')
 <div class="row">
     <div class="col-12">
         <div class="card">
+            <!-- バリデーションメッセージ -->
+            @if ($errors->any())
+                <div class="alert text-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="card-header d-flex justify-content-between bg-secondary">
                 <div class="card-tools">
                     <div class="input-group input-group-sm">
@@ -62,6 +63,7 @@
                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
+                        
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">プレイリスト作成</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
