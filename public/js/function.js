@@ -68,6 +68,10 @@ $(function () {
     });
 });
 
+$(function () {
+    $(".slider").slick();
+  });
+
 // -- 確認メッセージ --
 function deletePost(e){
     'use strict'

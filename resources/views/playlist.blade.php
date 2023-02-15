@@ -33,7 +33,7 @@
                             </tr>
                         </thead>
 
-                        <tbody id="sort">
+                        <tbody id="sort" class="slider">
                             @foreach ($songs as $i => $song)
                                 <tr id="{{ $i+1 }}">
                                     <input type="hidden" class="inOrder" data-playlist-id="{{ $playlist->id }}" data-playlist-song-id="{{ $song->pivot->id }}" value="{{ $i+1 }}" name="inOrder{{ $i+1 }}">
@@ -72,6 +72,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}" class="href">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 @stop
 
 @section('js')
@@ -83,4 +84,6 @@
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
     <!-- jQuery UI Touch Punch -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" integrity="sha512-0bEtK0USNd96MnO4XhH8jhv3nyRF0eK87pJke6pkYf3cM0uDIhNJy9ltuzqgypoIFXw3JSuiy04tVk4AjpZdZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-@stop
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    @stop
