@@ -33,7 +33,7 @@
                             </tr>
                         </thead>
 
-                        <tbody id="sort" class="overflow-x-scroll">
+                        <tbody id="sort">
                             @foreach ($songs as $i => $song)
                                 <tr id="{{ $i+1 }}">
                                     <input type="hidden" class="inOrder" data-playlist-id="{{ $playlist->id }}" data-playlist-song-id="{{ $song->pivot->id }}" value="{{ $i+1 }}" name="inOrder{{ $i+1 }}">
