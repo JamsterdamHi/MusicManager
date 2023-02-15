@@ -79,6 +79,7 @@
                     </form>
                 </div>
             </div>
+            <p class="mt-2 text-center text-muted">&copy; 2023 Jamsterdam Records</p>
         </div>
     </div>
 </div>
