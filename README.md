@@ -5,7 +5,7 @@
 
 ## デモ
 
-[WEBシステムを見る]（https://musicmanager.herokuapp.com/）
+[WEBシステムを見る]　https://musicmanager.herokuapp.com/
 
 ![MusicManager_スクショ](https://user-images.githubusercontent.com/112298582/219134277-675b03ff-768c-4129-9085-46c2c17e31f1.jpg)
 
