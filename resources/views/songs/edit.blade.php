@@ -42,7 +42,7 @@
                                     <option value="3" @if($song->mood_id == 3) selected @endif>バラード</option>
                                     <option value="4" @if($song->mood_id == 4) selected @endif>和風</option>
                                     <option value="5" @if($song->mood_id == 5) selected @endif>神聖な</option>
-                                    <option value="6" @if($song->mood_id == 6) selected @endif>ダンスビート</option>
+                                    <option value="6" @if($song->mood_id == 6) selected @endif>悲しい</option>
                                     <option value="7" @if($song->mood_id == 7) selected @endif>激しい</option>
                                     <option value="8" @if($song->mood_id == 8) selected @endif>ドラマティック</option>
                                     <option value="9" @if($song->mood_id == 9) selected @endif>ゲーム余興</option>
