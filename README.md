@@ -3,9 +3,6 @@
 選曲を楽しいものに！　WEBシステムで曲を管理
 
 ---
-## デモ
-
-[WEBシステムを見る]　https://musicmanager.herokuapp.com/
 
 ![MusicManager_スクショ](https://user-images.githubusercontent.com/112298582/219134277-675b03ff-768c-4129-9085-46c2c17e31f1.jpg)
 
@@ -47,11 +44,6 @@
 
 ### テストアカウント情報
 ```
-管理者
-メールアドレス : jamsterdam.hibii@gmail.com
-パスワード : F74ks8frP3F4CNT
-
-テストアカウント
 メールアドレス : b@b
 パスワード : 98765432
 ```
