@@ -1,14 +1,15 @@
-自主制作課題
 # MusicManager
 
 選曲を楽しいものに！　WEBシステムで曲を管理
 
+---
 ## デモ
 
 [WEBシステムを見る]　https://musicmanager.herokuapp.com/
 
 ![MusicManager_スクショ](https://user-images.githubusercontent.com/112298582/219134277-675b03ff-768c-4129-9085-46c2c17e31f1.jpg)
 
+---
 ## 使い方
 
 1. 「新規会員登録」画面で新規会員の登録ができる。
@@ -20,12 +21,38 @@
 7. プレイリストを作成し、選択した曲をプレイリストに登録できる。
 8. プレイリスト内の曲は、コメントを記入できる。
 9. プレイリスト内の曲は、ドラッグ＆ドロップで曲順の入れ替えができる。
+---
+
+## 開発環境
+
+　PHP 8.2.2 / Laravel 8.83.27 / JavaScript / jQuery 3.5.1 / MYSQL 8.0.32 / HTML / CSS
+
+---
+## 設計書
+[要件定義書ページへ](https://docs.google.com/spreadsheets/d/11u9jmTkl6lsVuGSV8nyVj6bRKL9LG9qQ3Iqu_TTiZ1g/edit#gid=0)
+
+[基本設計書ページへ](https://docs.google.com/spreadsheets/d/1Ch0TT-_SpsTigiCgpGtHc6YyR5H-wN0roP5FsfhmhEc/edit#gid=0)
+
+[画面設計書ページへ](https://docs.google.com/spreadsheets/d/1GUBp9ULB9u5a9eURxna4lqYXyWxMxY2lyJmoy5mpc7U/edit#gid=0)
 
 
-## 利用している技術
+[データベース定義書ページへ](https://docs.google.com/spreadsheets/d/197SEYUnOZk45gYIzAEAwuZ5-fZaKgxXogrYW92ua308/edit#gid=0)
 
-　PHP / Laravel / JavaScript / jQuery / HTML / CSS
 
-## インストール方法
+[テスト仕様書兼報告書ページへ](https://docs.google.com/spreadsheets/d/1s3cn0oKwZiwy-h4X216wxl78wSLRYZTLIerJUj_fHwA/edit#gid=1170946066)
 
-そのままブラウザで開くと閲覧できます。
+---
+## システム閲覧
+[アプリケーションページへ](https://musicmanager.herokuapp.com/)
+
+### テストアカウント情報
+```
+管理者
+メールアドレス : jamsterdam.hibii@gmail.com
+パスワード : F74ks8frP3F4CNT
+
+テストアカウント
+メールアドレス : b@b
+パスワード : 98765432
+```
+
