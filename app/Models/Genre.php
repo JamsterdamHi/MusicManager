@@ -17,19 +17,4 @@ class Genre extends Model
         return $this->hasMany(Song::class);
     }
     
-    public function genre()
-    {
-        // $genre[
-        //     ['id' => 1, 'name'=> 'ポップス'],
-        //     ['id' => 2, 'name'=> 'ロック'],
-        //     ['id' => 3, 'name'=> 'ダンス'],
-        //     ['id' => 4, 'name'=> 'ヒップホップ'],
-        //     ['id' => 5, 'name'=> 'R＆B'],
-        //     ['id' => 6, 'name'=> 'レゲエ'],
-        //     ['id' => 7, 'name'=> 'ジャズ'],
-        //     ['id' => 8, 'name'=> 'クラシック'],
-        //     ['id' => 9, 'name'=> 'インスト'],
-        //     ['id' => 10, 'name'=> 'オルゴール'],
-        // ];
-    }
 }

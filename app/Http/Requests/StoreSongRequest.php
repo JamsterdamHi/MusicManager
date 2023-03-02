@@ -24,8 +24,8 @@ class StoreSongRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'max:50'],
-            'artist_name' => ['required', 'string', 'max:50'],
+            'name' => ['required', 'string', 'max:100'],
+            'artist_name' => ['required', 'string', 'max:100'],
             'youtube_url' => ['nullable', 'url', 'max:191'],
         ];
     }
