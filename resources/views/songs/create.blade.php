@@ -53,8 +53,8 @@
                                 <option value="13" {{ old('mood_id')==13 ? 'selected' : '' }}>和風</option>
                                 <option value="14" {{ old('mood_id')==14 ? 'selected' : '' }}>切ない</option>
                                 <option value="15" {{ old('mood_id')==15 ? 'selected' : '' }}>ミステリアス</option>
-                                <option value="16" {{ old('mood_id')==16 ? 'selected' : '' }}>暗い</option>
-                                <option value="17" {{ old('mood_id')==17 ? 'selected' : '' }}>怒り</option>
+                                <option value="16" {{ old('mood_id')==16 ? 'selected' : '' }}>バラード</option>
+                                <option value="17" {{ old('mood_id')==17 ? 'selected' : '' }}>かわいい</option>
                                 <option value="18" {{ old('mood_id')==18 ? 'selected' : '' }}>ゲーム</option>
                             </select>
                         </div>

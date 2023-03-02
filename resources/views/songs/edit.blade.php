@@ -37,16 +37,24 @@
                             <div class="col">
                                 <label for="custom-select-1">ムード</label>
                                 <select id="mood" name="mood_id" class="custom-select" value="{{ $mood }}">
-                                    <option value="1" @if($song->mood_id == 1) selected @endif>アップテンポ</option>
-                                    <option value="2" @if($song->mood_id == 2) selected @endif>ミディアムテンポ</option>
-                                    <option value="3" @if($song->mood_id == 3) selected @endif>バラード</option>
-                                    <option value="4" @if($song->mood_id == 4) selected @endif>和風</option>
-                                    <option value="5" @if($song->mood_id == 5) selected @endif>神聖な</option>
-                                    <option value="6" @if($song->mood_id == 6) selected @endif>悲しい</option>
-                                    <option value="7" @if($song->mood_id == 7) selected @endif>激しい</option>
-                                    <option value="8" @if($song->mood_id == 8) selected @endif>ドラマティック</option>
-                                    <option value="9" @if($song->mood_id == 9) selected @endif>ゲーム余興</option>
-                                    <option value="10" @if($song->mood_id == 10) selected @endif>効果音</option>
+                                    <option value="1" @if($song->mood_id == 1) selected @endif>明るい</option>
+                                    <option value="2" @if($song->mood_id == 2) selected @endif>幸せ</option>
+                                    <option value="3" @if($song->mood_id == 3) selected @endif>ドラマティック</option>
+                                    <option value="4" @if($song->mood_id == 4) selected @endif>神聖</option>
+                                    <option value="5" @if($song->mood_id == 5) selected @endif>パワフル</option>
+                                    <option value="6" @if($song->mood_id == 6) selected @endif>面白い</option>
+                                    <option value="7" @if($song->mood_id == 7) selected @endif>愛</option>
+                                    <option value="8" @if($song->mood_id == 8) selected @endif>友情</option>
+                                    <option value="9" @if($song->mood_id == 9) selected @endif>家族</option>
+                                    <option value="10" @if($song->mood_id == 10) selected @endif>静かな</option>
+                                    <option value="11" @if($song->mood_id == 11) selected @endif>都会的</option>
+                                    <option value="12" @if($song->mood_id == 12) selected @endif>セクシー</option>
+                                    <option value="13" @if($song->mood_id == 13) selected @endif>和風</option>
+                                    <option value="14" @if($song->mood_id == 14) selected @endif>切ない</option>
+                                    <option value="15" @if($song->mood_id == 15) selected @endif>ミステリアス</option>
+                                    <option value="16" @if($song->mood_id == 16) selected @endif>バラード</option>
+                                    <option value="17" @if($song->mood_id == 17) selected @endif>かわいい</option>
+                                    <option value="18" @if($song->mood_id == 18) selected @endif>ゲーム</option>
                                 </select>
                             </div>
 
@@ -55,14 +63,26 @@
                                 <select id="genre" name="genre_id" class="custom-select">
                                     <option value="1" @if($song->genre_id == 1) selected @endif>ポップス</option>
                                     <option value="2" @if($song->genre_id == 2) selected @endif>ロック</option>
-                                    <option value="3" @if($song->genre_id == 3) selected @endif>ダンス</option>
-                                    <option value="4" @if($song->genre_id == 4) selected @endif>ヒップホップ</option>
-                                    <option value="5" @if($song->genre_id == 5) selected @endif>R＆B</option>
-                                    <option value="6" @if($song->genre_id == 6) selected @endif>レゲエ</option>
-                                    <option value="7" @if($song->genre_id == 7) selected @endif>ジャズ</option>
-                                    <option value="8" @if($song->genre_id == 8) selected @endif>クラシック</option>
-                                    <option value="9" @if($song->genre_id == 9) selected @endif>インスト</option>
-                                    <option value="10" @if($song->genre_id == 10) selected @endif)>オルゴール</option>
+                                    <option value="3" @if($song->genre_id == 3) selected @endif>ヒップホップ</option>
+                                    <option value="4" @if($song->genre_id == 4) selected @endif>R＆B/ソウル</option>
+                                    <option value="5" @if($song->genre_id == 5) selected @endif>レゲエ</option>
+                                    <option value="6" @if($song->genre_id == 6) selected @endif>ダンス</option>
+                                    <option value="7" @if($song->genre_id == 7) selected @endif>テクノ</option>
+                                    <option value="8" @if($song->genre_id == 8) selected @endif>アンビエント</option>
+                                    <option value="9" @if($song->genre_id == 9) selected @endif>フォーク</option>
+                                    <option value="10" @if($song->genre_id == 10) selected @endif>ブルース</option>
+                                    <option value="11" @if($song->genre_id == 11) selected @endif>ジャズ</option>
+                                    <option value="12" @if($song->genre_id == 12) selected @endif>カントリー</option>
+                                    <option value="13" @if($song->genre_id == 13) selected @endif>ラテン</option>
+                                    <option value="14" @if($song->genre_id == 14) selected @endif>ワールド</option>
+                                    <option value="15" @if($song->genre_id == 15) selected @endif>ボカロ</option>
+                                    <option value="16" @if($song->genre_id == 16) selected @endif>クラシック</option>
+                                    <option value="17" @if($song->genre_id == 17) selected @endif>子供</option>
+                                    <option value="18" @if($song->genre_id == 18) selected @endif>演歌</option>
+                                    <option value="19" @if($song->genre_id == 19) selected @endif>合唱</option>
+                                    <option value="20" @if($song->genre_id == 20) selected @endif>インスト</option>
+                                    <option value="21" @if($song->genre_id == 21) selected @endif>オルゴール</option>
+                                    <option value="22" @if($song->genre_id == 22) selected @endif>効果音</option>
                                 </select>
                             </div>
                         </div>
