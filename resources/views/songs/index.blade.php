@@ -120,7 +120,7 @@
                                 <td>{{ $song->genre->name }}</td>
                                 <td>{{ $song->name }}</td>
                                 <td>{{ $song->artist_name }}</td>
-                                <td><a href="{{ $song->youtube_url }}">{{ $song->youtube_url }}</a></td>
+                                <td><a href="{{ $song->youtube_url }}" target="_blank">{{ $song->youtube_url }}</a></td>
                                 <!-- 曲の編集 -->
                                 <td>
                                     <!-- アクセス権限 ユーザーid 又は 管理者 -->
