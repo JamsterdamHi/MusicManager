@@ -44,8 +44,8 @@
                                     <option value="5" @if($song->mood_id == 5) selected @endif>パワフル</option>
                                     <option value="6" @if($song->mood_id == 6) selected @endif>面白い</option>
                                     <option value="7" @if($song->mood_id == 7) selected @endif>愛</option>
-                                    <option value="8" @if($song->mood_id == 8) selected @endif>友情</option>
-                                    <option value="9" @if($song->mood_id == 9) selected @endif>家族</option>
+                                    <option value="8" @if($song->mood_id == 8) selected @endif>アップテンポ</option>
+                                    <option value="9" @if($song->mood_id == 9) selected @endif>ミドルテンポ</option>
                                     <option value="10" @if($song->mood_id == 10) selected @endif>静かな</option>
                                     <option value="11" @if($song->mood_id == 11) selected @endif>都会的</option>
                                     <option value="12" @if($song->mood_id == 12) selected @endif>セクシー</option>

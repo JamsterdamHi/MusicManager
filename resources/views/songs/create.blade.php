@@ -45,8 +45,8 @@
                                 <option value="5" {{ old('mood_id')==5 ? 'selected' : '' }}>パワフル</option>
                                 <option value="6" {{ old('mood_id')==6 ? 'selected' : '' }}>面白い</option>
                                 <option value="7" {{ old('mood_id')==7 ? 'selected' : '' }}>愛</option>
-                                <option value="8" {{ old('mood_id')==8 ? 'selected' : '' }}>友情</option>
-                                <option value="9" {{ old('mood_id')==9 ? 'selected' : '' }}>家族</option>
+                                <option value="8" {{ old('mood_id')==8 ? 'selected' : '' }}>アップテンポ</option>
+                                <option value="9" {{ old('mood_id')==9 ? 'selected' : '' }}>ミドルテンポ</option>
                                 <option value="10" {{ old('mood_id')==10 ? 'selected' : '' }}>静かな</option>
                                 <option value="11" {{ old('mood_id')==11 ? 'selected' : '' }}>都会的</option>
                                 <option value="12" {{ old('mood_id')==12 ? 'selected' : '' }}>セクシー</option>
