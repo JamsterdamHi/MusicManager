@@ -43,7 +43,7 @@
                                 <option value="3" {{ old('mood_id')==3 ? 'selected' : '' }}>ドラマティック</option>
                                 <option value="4" {{ old('mood_id')==4 ? 'selected' : '' }}>神聖</option>
                                 <option value="5" {{ old('mood_id')==5 ? 'selected' : '' }}>パワフル</option>
-                                <option value="6" {{ old('mood_id')==6 ? 'selected' : '' }}>面白い</option>
+                                <option value="6" {{ old('mood_id')==6 ? 'selected' : '' }}>楽しい</option>
                                 <option value="7" {{ old('mood_id')==7 ? 'selected' : '' }}>愛</option>
                                 <option value="8" {{ old('mood_id')==8 ? 'selected' : '' }}>アップテンポ</option>
                                 <option value="9" {{ old('mood_id')==9 ? 'selected' : '' }}>ミドルテンポ</option>
