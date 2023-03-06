@@ -28,7 +28,7 @@
                                             <div class="text-right">  
                                                 <form id="delete_{{ $playlist->id }}" action="{{ route('playlist.destroy', ['id' => $playlist->id]) }}" method="POST">
                                                     @csrf
-                                                        <a href="#" data-id="{{ $playlist->id }}" onclick="deletePost(this)" class="btn btn-outline-danger btn-sm rounded-circle">ー</a>
+                                                    <a href="#" data-id="{{ $playlist->id }}" onclick="deletePost(this)" class="btn btn-outline-danger btn-sm rounded-circle">ー</a>
                                                 </form>
                                             </div>  
                                         </td>

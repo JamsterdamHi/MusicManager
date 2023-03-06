@@ -49,7 +49,7 @@
                                     <td>{{ $song->genre->name }}</td>
                                     <td>{{ $song->name }}</td>
                                     <td>{{ $song->artist_name }}</td>
-                                    <td><a href="{{ $song->youtube_url }}">{{ $song->youtube_url }}</a></td>
+                                    <td><a href="{{ $song->youtube_url }}" target="_blank">{{ $song->youtube_url }}</a></td>
                                     <td>
                                         <form method="POST" action="{{ route('songs.remove_song', ['id' => $playlist->id, 'song_id' => $song->id]) }}">
                                                 @csrf
