@@ -48,3 +48,7 @@ Route::prefix('songs')->middleware(['auth'])->name('songs.')->group(function () 
 });
 
 Route::get('youtube', [YoutubeController::class, 'index']);
+
+Route::get('/test', function() {
+    return 'test page works';
+});
