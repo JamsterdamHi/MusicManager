@@ -53,7 +53,7 @@ class SongPolicy
      */
     public function update(User $user, Song $song)
     {
-        return $user->role === 'admin' || $user->id == $song->user_id;
+        return $user->role === 'administrator' || $user->id == $song->user_id;
     }
 
     /**
@@ -65,7 +65,7 @@ class SongPolicy
      */
     public function delete(User $user, Song $song)
     {
-        return $user->role === 'admin' || $user->id == $song->user_id;
+        return $user->role === 'administrator' || $user->id == $song->user_id;
     }
 
     /**
