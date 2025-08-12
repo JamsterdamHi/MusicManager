@@ -1,0 +1,13 @@
+app = "musicmanager"
+primary_region = "nrt"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  APP_ENV = "production"
+  APP_DEBUG = "false"
+
+[http_service]
+  internal_port = 8000
+  force_https = true
