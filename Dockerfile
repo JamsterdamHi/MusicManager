@@ -24,6 +24,10 @@ COPY . /var/www
 
 RUN chown -R www-data:www-data /var/www && chmod -R 755 /var/www
 
+# IPv6通信確認用（デプロイ時にログに結果が出る）
+RUN apt-get update && apt-get install -y iputils-ping && \
+    ping6 -c 3 google.com || echo "IPv6 unreachable"
+
 RUN composer install --no-dev --optimize-autoloader
 
 RUN php artisan config:clear
