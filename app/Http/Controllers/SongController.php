@@ -18,22 +18,29 @@ class SongController extends Controller
      */
     public function index(Request $request)
     {
-        // ドロップダウン表示
-        if (Gate::allows('isAdmin')) {
-            // 管理者は全てのプレイリストを表示
-            $playlists = Playlist::orderBy('created_at')->get();
-        } else {
-            // 認証済みユーザーid取得
-            $playlists = Playlist::where('user_id', Auth::id())->orderBy('created_at')->get();
-        }
+        $user = Auth::user();
 
-        // 検索機能
-        $search = $request->search;
-        $query = Song::search($search);
-        $songs = $query->sortable('name')->get();
-
-        return view('songs.index', compact('songs', 'playlists'));
+     // ドロップダウン表示
+    if (Gate::allows('isAdmin')) {
+        $playlists = Playlist::orderBy('created_at')->get();
+    } else {
+        $playlists = Playlist::where('user_id', Auth::id())->orderBy('created_at')->get();
     }
+
+    // 検索機能 + 表示制限
+    $search = $request->search;
+    $songs = Song::search($search)
+        ->where(function ($query) use ($user) {
+            $query->where('user_id', $user->id)
+                ->orWhereHas('user', function ($query) {
+                    $query->where('role', 'administrator');
+                });
+        })
+        ->sortable('name')
+        ->paginate(20); // ページごとに20件
+
+    return view('songs.index', compact('songs', 'playlists'));
+}
 
     /**
      * 曲登録画面の表示
